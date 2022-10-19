@@ -1,0 +1,57 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('index');
+});
+Route::get('/doctors',[\App\Http\Controllers\Doctor\DoctorController::class,'list']);
+
+
+Route::name('patient.')->prefix('patient')->group( function (){
+    Route::middleware('is_patient')->group(function (){
+        Route::get('dashboard',[\App\Http\Controllers\Patient\DashboardController::class,'index'])->name('dashboard');
+        Route::post('dashboard',[\App\Http\Controllers\Patient\DashboardController::class,'FinishOnboard']);
+        Route::get('bookings',[\App\Http\Controllers\Patient\DashboardController::class,'bookings']);
+
+        Route::post('logout', [\App\Http\Controllers\Patient\AuthController::class, 'destroy'])->name('logout');
+    });
+    Route::get('register',[\App\Http\Controllers\Patient\AuthController::class,'register']);
+    Route::post('register',[\App\Http\Controllers\Patient\AuthController::class,'store'])->name('register');
+    Route::get('login',[\App\Http\Controllers\Patient\AuthController::class,'login'])->name('login');
+
+});
+Route::name('doctor.')->prefix('doctor')->group( function (){
+    Route::middleware('is_doctor')->group(function (){
+        Route::get('dashboard',[\App\Http\Controllers\Doctor\DashboardController::class,'index'])->name('dashboard');
+        Route::post('logout', [\App\Http\Controllers\Doctor\AuthController::class, 'destroy'])->name('logout');
+        Route::get('dashboard/edit-profile',[\App\Http\Controllers\Doctor\DashboardController::class,'profile_edit'])->name('profile-edit');
+        Route::post('dashboard/edit-profile',[\App\Http\Controllers\Doctor\DashboardController::class,'profile_save']);
+        Route::get('dashboard/bookings',[\App\Http\Controllers\Doctor\DashboardController::class,'bookings'])->name('bookings');
+    });
+    Route::get('login',[\App\Http\Controllers\Doctor\AuthController::class,'login'])->name('login');
+    Route::get('{username}',[\App\Http\Controllers\Doctor\DoctorController::class,'index']);
+    Route::get('{username}/book-now',[\App\Http\Controllers\AppointmentController::class,'BookNowWithDetails'])->name('book-now');
+    Route::post('{username}/book-now',[\App\Http\Controllers\AppointmentController::class,'BookNowWithDetailsPost']);
+    Route::post('{username}/book',[\App\Http\Controllers\AppointmentController::class,'Create'])->name('book');
+
+});
+Route::get('/login/doctor',[\App\Http\Controllers\Doctor\AuthController::class,'login'])->name('doctor');
+Route::post('/login/patient',[\App\Http\Controllers\Patient\AuthController::class,'authenticate'])->name('patient-login');
+Route::post('/login/doctor',[\App\Http\Controllers\Doctor\AuthController::class,'authenticate'])->name('doctor-login');
+Route::get('/register/doctor',[\App\Http\Controllers\Doctor\AuthController::class,'register']);
+Route::post('/register/doctor',[\App\Http\Controllers\Doctor\AuthController::class,'store'])->name('doctor-register');
+Route::get('/register/patient',[\App\Http\Controllers\Patient\AuthController::class,'register']);
+Route::post('/register/patient',[\App\Http\Controllers\Patient\AuthController::class,'store'])->name('patient-register');
+require __DIR__.'/auth.php';
