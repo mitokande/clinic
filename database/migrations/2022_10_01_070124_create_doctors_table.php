@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('username');
             $table->string('first_name');
             $table->string('last_name');
+            $table->enum('title',['Intern','Prof Dr.','Dr.'])->default('Dr.');
+            $table->string('medicine_field_id');
             $table->string('telephone')->nullable();
             $table->string('password');
             $table->string('email')->unique();

@@ -63,5 +63,8 @@ class Doctor extends Authenticatable implements Viewable
     {
         return $this->morphMany(Rating::class, 'rateable');
     }
+    public function field(){
+        return MedicineField::find($this->medicine_field_id);
+    }
 
 }

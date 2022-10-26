@@ -15,9 +15,20 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('telephone');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('history')->nullable();
+            $table->string('gender')->nullable();
+            $table->float('age')->nullable();
+            $table->float('weight')->nullable();
+            $table->float('height')->nullable();
+            $table->string('city')->nullable();
+            $table->string('address')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zipcode')->nullable();
             $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();

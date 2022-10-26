@@ -17,13 +17,23 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/doctors',[\App\Http\Controllers\Doctor\DoctorController::class,'list']);
-
+Route::get('/denememe',function (){
+    $doctor = \App\Models\Doctor::find(1);
+    $doctor->medicine_field_id = \App\Models\MedicineField::find(1)->id;
+    $doctor->save();
+    return \App\Models\Doctor::find(1)->field()->name;
+});
 
 Route::name('patient.')->prefix('patient')->group( function (){
     Route::middleware('is_patient')->group(function (){
         Route::get('dashboard',[\App\Http\Controllers\Patient\DashboardController::class,'index'])->name('dashboard');
         Route::post('dashboard',[\App\Http\Controllers\Patient\DashboardController::class,'FinishOnboard']);
         Route::get('bookings',[\App\Http\Controllers\Patient\DashboardController::class,'bookings']);
+        Route::get('dashboard/edit-profile',[\App\Http\Controllers\Patient\DashboardController::class,'profile_edit'])->name('profile-edit');
+        Route::post('dashboard/edit-profile',[\App\Http\Controllers\Patient\DashboardController::class,'profile_save']);
+        Route::get('dashboard/messages/',[\App\Http\Controllers\Patient\DashboardController::class,'Messages'])->name('messages');
+        Route::get('dashboard/message/{id}',[\App\Http\Controllers\Patient\DashboardController::class,'ShowInbox']);
+        Route::post('dashboard/message/{id}',[\App\Http\Controllers\Patient\DashboardController::class,'SendMessage']);
 
         Route::post('logout', [\App\Http\Controllers\Patient\AuthController::class, 'destroy'])->name('logout');
     });
@@ -32,6 +42,10 @@ Route::name('patient.')->prefix('patient')->group( function (){
     Route::get('login',[\App\Http\Controllers\Patient\AuthController::class,'login'])->name('login');
 
 });
+
+Route::get('messages/{id}',function ($id){
+    return \App\Models\Message::all()->find($id)->GetSender();
+});
 Route::name('doctor.')->prefix('doctor')->group( function (){
     Route::middleware('is_doctor')->group(function (){
         Route::get('dashboard',[\App\Http\Controllers\Doctor\DashboardController::class,'index'])->name('dashboard');
@@ -39,6 +53,10 @@ Route::name('doctor.')->prefix('doctor')->group( function (){
         Route::get('dashboard/edit-profile',[\App\Http\Controllers\Doctor\DashboardController::class,'profile_edit'])->name('profile-edit');
         Route::post('dashboard/edit-profile',[\App\Http\Controllers\Doctor\DashboardController::class,'profile_save']);
         Route::get('dashboard/bookings',[\App\Http\Controllers\Doctor\DashboardController::class,'bookings'])->name('bookings');
+        Route::get('dashboard/messages/',[\App\Http\Controllers\Doctor\DashboardController::class,'Messages'])->name('messages');
+        Route::get('dashboard/message/{id}',[\App\Http\Controllers\Doctor\DashboardController::class,'ShowInbox']);
+        Route::post('logout', [\App\Http\Controllers\Doctor\AuthController::class, 'destroy'])->name('logout');
+
     });
     Route::get('login',[\App\Http\Controllers\Doctor\AuthController::class,'login'])->name('login');
     Route::get('{username}',[\App\Http\Controllers\Doctor\DoctorController::class,'index']);

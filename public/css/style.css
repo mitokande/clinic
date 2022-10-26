@@ -175,6 +175,7 @@ body {
 }
 
 main {
+    margin-top: 5vh;
   background: #f5f8fa;
   position: relative;
   z-index: 1;
@@ -5166,3 +5167,4 @@ ul#cat_nav li:last-child a:hover, ul#cat_nav li:last-child a#active, ul#cat_nav 
   float: right;
   color: #e74e84;
 }
+

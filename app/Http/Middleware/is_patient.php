@@ -17,7 +17,7 @@ class is_patient
     public function handle(Request $request, Closure $next)
     {
         if(!auth()->guard('patients')->check() || !auth()->guard('patients')->user()){
-            abort(code:403);
+            return redirect()->route('patient.login');
         }
         return $next($request);
     }

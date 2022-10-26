@@ -17,7 +17,7 @@ class is_doctor
     public function handle(Request $request, Closure $next)
     {
         if(!auth()->guard('doctors')->check() || !auth()->guard('doctors')->user()){
-            return redirect()->route('doctor-login');
+            return redirect()->route('doctor.login');
         }
         return $next($request);
     }

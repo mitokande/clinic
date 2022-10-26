@@ -220,9 +220,27 @@
     </div>
 </nav>
 <!-- /Navigation-->
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Add listing</li>
+        </ol>
 @livewire('livewire-ui-modal')
 
-@livewire('patients.appointments-calendar',['patient'=>$patient])
+<livewire:patients.appointments-calendar
+    before-calendar-view="patients.calendar_before"
+    :drag-and-drop-enabled="false"
+/>
+    </div>
+    <!-- /.container-fluid-->
+</div>
+
 <!-- /.container-wrapper-->
 <footer class="sticky-footer">
     <div class="container">

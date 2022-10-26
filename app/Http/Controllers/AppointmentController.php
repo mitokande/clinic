@@ -16,6 +16,7 @@ class AppointmentController extends Controller
     }
     public function BookNowWithDetailsPost($username, Request $request){
         dd($request);
+
     }
     public function BookNowWithDetails($username){
         $appointments = Appointment::all();

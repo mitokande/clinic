@@ -199,112 +199,43 @@
                     <div class="tab-content">
                         <form method="post">
                             @csrf
+                            <input type="hidden"  name="date" id="dateInput">
                         <div class="tab-pane fade show active" id="book" role="tabpanel" aria-labelledby="book-tab">
                             <p class="lead add_bottom_30">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                            <div class="main_title_4">
+                                <h3><i class="icon_circle-slelected"></i>Select your date and time</h3>
+                            </div>
 
-                                <div class="main_title_3">
-                                    <h3><strong>1</strong>Select your date</h3>
-                                </div>
-                                <div class="form-group add_bottom_45">
-                                    <div id="calendar"></div>
-                                    <input type="hidden" id="my_hidden_input">
-                                    <ul class="legend">
-                                        <li><strong></strong>Available</li>
-                                        <li><strong></strong>Not available</li>
-                                    </ul>
-                                </div>
-                                <div class="main_title_3">
-                                    <h3><strong>2</strong>Select your time</h3>
-                                </div>
-                                <div class="row justify-content-center add_bottom_45">
-{{--                                    <div class="col-md-3 col-6 text-center">--}}
-{{--                                        <ul class="time_select">--}}
-{{--                                            <li>--}}
-{{--                                                <input type="radio" id="radio1" name="radio_time" value="09.30am">--}}
-{{--                                                <label for="radio1">09.30am</label>--}}
-{{--                                            </li>--}}
-{{--                                            <li>--}}
-{{--                                                <input type="radio" id="radio2" name="radio_time" value="10.00am">--}}
-{{--                                                <label for="radio2">10.00am</label>--}}
-{{--                                            </li>--}}
-{{--                                            <li>--}}
-{{--                                                <input type="radio" id="radio3" name="radio_time" value="10.30am">--}}
-{{--                                                <label for="radio3">10.30am</label>--}}
-{{--                                            </li>--}}
-{{--                                            <li>--}}
-{{--                                                <input type="radio" id="radio4" name="radio_time" value="11.00am">--}}
-{{--                                                <label for="radio4">11.00am</label>--}}
-{{--                                            </li>--}}
-{{--                                            <li>--}}
-{{--                                                <input type="radio" id="radio5" name="radio_time" value="11.30am">--}}
-{{--                                                <label for="radio5">11.30am</label>--}}
-{{--                                            </li>--}}
-{{--                                            <li>--}}
-{{--                                                <input type="radio" id="radio6" name="radio_time" value="12.00am">--}}
-{{--                                                <label for="radio6">12.00am</label>--}}
-{{--                                            </li>--}}
-{{--                                        </ul>--}}
-{{--                                    </div>--}}
-                                    <div class="col-md-3 col-6 text-center">
-                                        <ul class="time_select" id="timetable">
-                                            Select a Date
+                            <div class="row add_bottom_45">
+                                <div class="col-lg-7">
+                                    <div class="form-group">
+                                        <div id="calendar"></div>
+                                        <input type="hidden" id="my_hidden_input">
+                                        <ul class="legend">
+                                            <li><strong></strong>Available</li>
+                                            <li><strong></strong>Not available</li>
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- /row -->
+                                <div class="col-lg-5">
+                                    <ul class="time_select version_2 add_top_20" id="timetable">
+
+                                    </ul>
+                                </div>
+                            </div>
 
                                 <div class="main_title_3">
                                     <h3><strong>3</strong>Select visit</h3>
                                 </div>
                                 <ul class="treatments clearfix">
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit1" name="visit1">
-                                            <label for="visit1" class="css-label">Back Pain visit <strong>$55</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit2" name="visit2">
-                                            <label for="visit2" class="css-label">Cardiovascular screen <strong>$55</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit3" name="visit3">
-                                            <label for="visit3" class="css-label">Diabetes consultation <strong>$55</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit4" name="visit4">
-                                            <label for="visit4" class="css-label">Icontinence visit <strong>$55</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit5" name="visit5">
-                                            <label for="visit5" class="css-label">Foot Pain visit <strong>$55</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit6" name="visit6">
-                                            <label for="visit6" class="css-label">Food intollerance visit <strong>$55</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit7" name="visit7">
-                                            <label for="visit7" class="css-label">Neck Pain visit <strong>$55</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit8" name="visit8">
-                                            <label for="visit8" class="css-label">Back Pain visit <strong>$55</strong></label>
-                                        </div>
-                                    </li>
+                                    @foreach(json_decode($doctor->service) as $service=>$price)
+                                        <li>
+                                            <div class="checkbox">
+                                                <input type="checkbox" class="css-checkbox" id="{{$service}}" name="service_{{$service}}">
+                                                <label for="{{$service}}" class="css-label">{{$service}} <strong>{{$price}}</strong></label>
+                                            </div>
+                                        </li>
+                                    @endforeach
                                 </ul>
 
                             <hr>
@@ -633,15 +564,20 @@
     const books = {!! $bookings !!};
     var x = Object.keys(books).map((key) =>[new Date(key).toLocaleDateString('af-ZA'), books[key]]);
     var z = new Map();
-    x.forEach(obj => {z.set(obj[0],obj[1])});
+    x.forEach(obj => {
+        z.set(obj[0],obj[1])
+    });
     $('#calendar').datepicker({
         todayHighlight: true,
         daysOfWeekDisabled: [0],
         weekStart: 1,
         format: "yyyy-mm-dd",
+        datesDisabled: Object.keys(books).filter((x,y)=>books[x].length>2)
     }).on('changeDate',function (e){
+        var date = e.date.toLocaleDateString('af-ZA');
+        showTimesForDate(date);
+        document.getElementById("dateInput").value = date;
 
-        showTimesForDate(e.date.toLocaleDateString('af-ZA'));
     });
 
     function showTimesForDate(date){
@@ -650,9 +586,9 @@
         console.log();
         for(var i = 9; i<18; i++){
             if(z.get(date) != null && z.get(date.toString()).some(booking => new Date(booking.appointment_time).getHours() == i)){
-                timetable.innerHTML += '<li><input disabled type="radio" id="radio'+i+'" name="radio_time" value="'+i+'.00"><label style="background: red !important;" for="radio'+i+'">'+i+'.00</label></li>';
+                timetable.innerHTML += '<li><input disabled type="radio" id="radio'+i+'" name="time" value="'+i+'.00"><label style="background: red !important;" for="radio'+i+'">'+i+'.00</label></li>';
             }else{
-                timetable.innerHTML += '<li><input type="radio" id="radio'+i+'" name="radio_time" value="'+i+'.00"><label for="radio'+i+'">'+i+'.00</label></li>';
+                timetable.innerHTML += '<li><input type="radio" id="radio'+i+'" name="time" value="'+i+'.00"><label for="radio'+i+'">'+i+'.00</label></li>';
             }
         }
     }

@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Asantibanez\LivewireCalendar\LivewireCalendar;
 
+use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
@@ -15,10 +16,12 @@ class AppointmentsCalendar extends LivewireCalendar
     use LivewireAlert;
 
     public $appointment = [];
-    public $patient;
+
+
     public function events(): Collection
     {
-        return Appointment::query()->where('patient_id',$this->patient->id)->get()->map(function (Appointment $model) {
+        $patient = Auth::guard('patients')->user();
+        return Appointment::query()->where('patient_id',$patient->id)->get()->map(function (Appointment $model) {
             return [
                 'id' => $model->id,
                 'title' => $model->patient->name . " ile " . explode(" ",$model->appointment_time)[1] . " toplantısı",

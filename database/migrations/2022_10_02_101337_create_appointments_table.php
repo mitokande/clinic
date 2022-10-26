@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('appointment_type');
             $table->string('appointment_subject');
             $table->string('appointment_note')->nullable();
-            $table->string('appointment_status');
+            $table->enum('appointment_status', ['Pending', 'Scheduled', 'Active','Cancelled','Finished'])->default('Pending');
             $table->text('appointment_link')->nullable();
             $table->string('appointment_password')->nullable();
             $table->string('appointment_price')->nullable();

@@ -38,11 +38,12 @@
 
 
 
-
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
     <a class="navbar-brand" href="/"><img src="{{URL::asset('img/logo.png')}}" data-retina="true" alt="" width="163" height="36"></a>
-
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
@@ -66,8 +67,6 @@
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
                 <a class="nav-link" href="reviews.html">
                     <i class="fa fa-fw fa-star"></i>
-
-s
                     <span class="nav-link-text">Reviews</span>
                 </a>
             </li>
@@ -84,7 +83,7 @@ s
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProfile" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="/patient/dashboard/edit-profile" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">My profile</span>
                 </a>
@@ -210,7 +209,7 @@ s
                 </form>
             </li>
             <li class="nav-item">
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('doctor.logout') }}">
                     @csrf
                     <a onclick="event.preventDefault();
           this.closest('form').submit();" class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -220,9 +219,26 @@ s
     </div>
 </nav>
 <!-- /Navigation-->
-@livewire('livewire-ui-modal')
+<div class="content-wrapper">
 
-@livewire('appointments-calendar')
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Add listing</li>
+        </ol>
+        @livewire('livewire-ui-modal')
+
+        <livewire:appointments-calendar
+            before-calendar-view="patients.calendar_before"
+        />
+    </div>
+    <!-- /.container-fluid-->
+</div>
+
 <!-- /.container-wrapper-->
 <footer class="sticky-footer">
     <div class="container">

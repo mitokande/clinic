@@ -24,20 +24,24 @@
                     <div class="form-group">
                         <label>Gender</label>
                         <select name="gender" class="form-control">
-                            <option selected disabled>Choose Your Gender</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>I would like to not say.</option>
-                            <option>Other / (Non-Binary)</option>
+                            @if($patient->gender != null)
+                                <option value="{{$patient->gender}}">{{$patient->gender}}</option>
+                            @else
+                                <option value="none" selected disabled>Choose Your Gender</option>
+                            @endif
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="secret">I would like to not say.</option>
+                            <option value="other">Other / (Non-Binary)</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Weight</label>
-                        <input type="number" class="form-control" name="weight" placeholder="Your Weight">
+                        <input type="number" class="form-control" name="weight" value="{{$patient->weight}}" placeholder="Your Weight">
                     </div>
                     <div class="form-group">
                         <label>Height</label>
-                        <input type="number" class="form-control" name="height" placeholder="Your Height">
+                        <input type="number" class="form-control" name="height" value="{{$patient->height}}" placeholder="Your Height">
                     </div>
                     <div class="form-group text-center add_top_30">
                         <p><button type="submit" class="btn_1 medium">Save</button></p>
