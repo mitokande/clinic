@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     @livewireStyles
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
@@ -40,6 +41,7 @@
     <!-- /breadcrumb -->
 
     <div class="container margin_60">
+
         <div class="row">
             <div class="col-xl-8 col-lg-8">
                 <nav id="secondary_nav">
@@ -63,7 +65,9 @@
                                 <div class="col-lg-7 col-md-8">
                                     <small>{{$doctor->specialization}}</small>
                                     <h1>{{$doctor->first_name.' '.$doctor->last_name}}</h1>
+
                                     @livewire('doctor-stats',['doctor'=>$doctor])
+                                    <button onclick="Livewire.emit('openModal','send-message-modal')" class="msger-send-btn">Send Message</button>
                                     <ul class="contacts">
                                         <li>
                                             <h6>Address</h6>
@@ -73,6 +77,7 @@
                                         <li>
                                             <h6>Phone</h6> <a href="tel://{{$doctor->telephone}}">{{$doctor->telephone}}</a> </li>
                                     </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -91,9 +96,11 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <ul class="bullets">
-                                        @foreach(json_decode($doctor->specialization) as $specialization)
-                                            <li><strong></strong> - {{$specialization}}</li>
-                                        @endforeach
+                                        @if(!empty($doctor->specialization))
+                                            @foreach(json_decode($doctor->specialization) as $specialization)
+                                                <li><strong></strong> - {{$specialization}}</li>
+                                            @endforeach
+                                        @endif
                                     </ul>
                                 </div>
 {{--                                <div class="col-lg-6">--}}
@@ -120,9 +127,11 @@
 
                             <h6>Curriculum</h6>
                             <ul class="list_edu">
-                                @foreach(json_decode($doctor->education) as $education)
-                                    <li><strong></strong> - {{$education}}</li>
-                                @endforeach
+                                @if(!empty($doctor->specialization))
+                                    @foreach(json_decode($doctor->education) as $education)
+                                        <li><strong></strong> - {{$education}}</li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </div>
                         <!--  End wrapper indent -->
@@ -230,6 +239,7 @@
     </div>
     <!-- /container -->
 </main>
+@livewire('livewire-ui-modal')
 
 <x-home.footer></x-home.footer>
 <div id="toTop"></div>

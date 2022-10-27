@@ -16,7 +16,9 @@ class Patient extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'telephone',
         'email',
         'password',
     ];
@@ -41,5 +43,8 @@ class Patient extends Authenticatable
             return true;
         }
         return false;
+    }
+    public function getFullName(){
+        return $this->first_name.' '.$this->last_name;
     }
 }

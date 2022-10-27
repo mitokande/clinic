@@ -8,7 +8,7 @@
         <small>({{$rating}})</small>
         <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="../img/badges/badge_1.svg" width="15" height="15" alt=""></a>
     </span>
-    <button wire:click="Message()">Mesaj Deneme</button>
+
     <ul class="statistic">
         <li>{{$views}} Views</li>
         <li>{{$patients}} Patients</li>

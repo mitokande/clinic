@@ -5168,3 +5168,88 @@ ul#cat_nav li:last-child a:hover, ul#cat_nav li:last-child a#active, ul#cat_nav 
   color: #e74e84;
 }
 
+.msger-send-btn {
+    border:none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-align: center;
+    margin-left: 10px;
+    background: rgb(0, 196, 65);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.23s;
+}
+.msger-send-btn:hover {
+    background: rgb(0, 180, 50);
+}
+
+#modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    padding: 20px;
+    background: #80808026 !important;
+}
+.centering-block{
+    margin-top: 10%;
+}
+.centering-block:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+.centering-block:before .centered {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.modal-message {
+    background-color: #fefcfa;
+    border-radius: 15px;
+    box-shadow: 0 50px 100px 30px #cead89;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 500px;
+}
+.modal-message .from {
+    color: #cccdce;
+    font-weight: 300;
+    padding: 35px 35px 15px;
+}
+.modal-message .from a {
+    color: #218cfe;
+}
+.modal-message .from a:hover, .modal-message .from a:focus, .modal-message .from a:active {
+    color: #0166d2;
+}
+.modal-message .message {
+    padding: 0 35px 15px;
+}
+.modal-message .buttons {
+    text-align: center;
+    width: 100%;
+}
+.modal-message .buttons .cancel,
+.modal-message .buttons .reply {
+    background-color: #faf2e9;
+    float: left;
+    padding: 25px;
+    text-transform: uppercase;
+    width: 199px;
+}
+.modal-message .buttons .cancel:hover, .modal-message .buttons .cancel:focus, .modal-message .buttons .cancel:active,
+.modal-message .buttons .reply:hover,
+.modal-message .buttons .reply:focus,
+.modal-message .buttons .reply:active {
+    background-color: #f6e5d4;
+    color: #5c636c;
+}
+.modal-message .buttons .cancel {
+    border-right: 2px solid #fefcfa;
+}

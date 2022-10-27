@@ -145,9 +145,15 @@
                         <form method="post" action="{{ route('patient.register') }}">
                             @csrf
                             <div class="box_form">
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Your name">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" name="first_name" placeholder="Your first name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" name="last_name" placeholder="Your last name">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
@@ -160,6 +166,10 @@
                                 <div class="form-group">
                                     <label>Confirm password</label>
                                     <input type="password" class="form-control" id="password2" name="password_confirmation" placeholder="Confirm password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Telephone</label>
+                                    <input type="number" class="form-control"  name="telephone" placeholder="Telephone Number">
                                 </div>
                                 <div id="pass-info" class="clearfix"></div>
                                 <div class="checkbox-holder text-left">

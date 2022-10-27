@@ -248,8 +248,8 @@
                 ?>
                 <input type="hidden" name="sender" value="{{json_encode([$patient::class,$patient->id])}}">
                 <input type="hidden" name="receiver" value="{{json_encode([$messengee[0]::class,$messengee[0]->id])}}">
-                <input placeholder="Send A Message" class="form-control" name="content" />
-                <input type="submit" value="Send">
+                <input  placeholder="Send A Message" class="form-control" name="content" />
+                <input class="msger-send-btn" type="submit" value="Send">
             </form>
         </div></div>
     <!-- /.container-fluid-->
