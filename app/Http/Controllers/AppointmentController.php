@@ -15,7 +15,7 @@ class AppointmentController extends Controller
         AppointmentService::CreateZoomMeeting($username,$request);
     }
     public function BookNowWithDetailsPost($username, Request $request){
-        dd($request);
+        AppointmentService::CreateZoomMeeting($username,$request);
 
     }
     public function BookNowWithDetails($username){

@@ -199,7 +199,7 @@
                     <div class="tab-content">
                         <form method="post">
                             @csrf
-                            <input type="hidden"  name="date" id="dateInput">
+                            <input type="hidden"  name="year" id="dateInput">
                         <div class="tab-pane fade show active" id="book" role="tabpanel" aria-labelledby="book-tab">
                             <p class="lead add_bottom_30">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
                             <div class="main_title_4">
@@ -228,14 +228,16 @@
                                     <h3><strong>3</strong>Select visit</h3>
                                 </div>
                                 <ul class="treatments clearfix">
-                                    @foreach(json_decode($doctor->service) as $service=>$price)
-                                        <li>
-                                            <div class="checkbox">
-                                                <input type="checkbox" class="css-checkbox" id="{{$service}}" name="service_{{$service}}">
-                                                <label for="{{$service}}" class="css-label">{{$service}} <strong>{{$price}}</strong></label>
-                                            </div>
-                                        </li>
-                                    @endforeach
+                                    @if(!empty($doctor->service))
+                                        @foreach(json_decode($doctor->service) as $service=>$price)
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="checkbox" class="css-checkbox" id="{{$service}}" name="service_{{$service}}">
+                                                    <label for="{{$service}}" class="css-label">{{$service}} <strong>{{$price}}</strong></label>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    @endif
                                 </ul>
 
                             <hr>

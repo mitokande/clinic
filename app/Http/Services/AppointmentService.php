@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use App\Http\Enums\AppointmentStatusEnum;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use Carbon\Carbon;
@@ -17,10 +18,10 @@ class AppointmentService{
         // echo '<br>'.$request->year;
         // return;
         $doc = Doctor::where('username',$doctor)->first();
-        $username = Auth::guard('patients')->user()->name;
+        $username = Auth::guard('patients')->user()->getFullName();
         $zoom = Zoom::user()->first();
         $meeting = Zoom::meeting()->make([
-            'topic' => $username. ' ve Doctor ' .$doc->first_name.' '.$doc->last_name.' ile '.$doc->specialization.' Görüşmesi',
+            'topic' => $username. ' ve '.$doc->title.' ' .$doc->first_name.' '.$doc->last_name.' ile '.$doc->specialization.' Görüşmesi',
             'duration' => '30',
             'start_time' => new Carbon($request->year.' '.$request->time)
 
@@ -36,17 +37,17 @@ class AppointmentService{
         $zoom->meetings()->save($meeting);
         // $meetings = $zoom->meetings()->all();
         // $meeting->start_url
-        $price = count($request->subject)*100;
+        $price = 100;
         $appointment = new Appointment();
         $appointment->patient_id = Auth::guard('patients')->user()->id;
         $appointment->doctor_id = $doc->id;
         $appointment->meeting_id = $meeting->id;
         $appointment->appointment_time = new Carbon($request->year.' '.$request->time);
         $appointment->user_ip = $request->ip();
-        $appointment->appointment_type = $request->type;
+        $appointment->appointment_type = $request->type != null ? $request->type : 'null';
         $appointment->appointment_subject = json_encode($request->subject);
         $appointment->appointment_note =  $request->note;
-        $appointment->appointment_status =  "Booked";
+        $appointment->appointment_status =  AppointmentStatusEnum::Pending;
         $appointment->appointment_link =  $meeting->start_url;
         $appointment->appointment_password =  $meeting->password;
         $appointment->appointment_price = $price;

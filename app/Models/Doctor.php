@@ -25,6 +25,7 @@ class Doctor extends Authenticatable implements Viewable
         'last_name',
         'email',
         'password',
+        'profile_picture'
     ];
 
 

@@ -55,6 +55,14 @@ class DatabaseSeeder extends Seeder
             'telephone' => '5397245035',
             'password' => Hash::make('123123123'),
             'medicine_field_id' => MedicineField::find(1)->id,
+            'profile_picture' => 'https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg'
+        ]);
+        DB::table('patients')->insert([
+           'first_name' => 'Mithat Can',
+           'last_name' => 'Turan',
+           'email' => 'benmithat18@gmail.com',
+           'telephone' => '5397245035',
+           'password' => Hash::make('123123123')
         ]);
     }
 }

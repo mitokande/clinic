@@ -21,7 +21,7 @@ class AppointmentsCalendar extends LivewireCalendar
         return Appointment::all()->map(function (Appointment $model) {
             return [
                 'id' => $model->id,
-                'title' => $model->patient->name . " ile " . explode(" ",$model->appointment_time)[1] . " toplantısı",
+                'title' => $model->patient->getFullName() . " ile " . explode(" ",$model->appointment_time)[1] . " toplantısı",
                 'description' => $model->appointment_subject,
                 'date' => $model->appointment_time,
             ];
