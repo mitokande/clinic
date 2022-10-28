@@ -1,4 +1,3 @@
-@include('layouts.sweetalert.alert')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,16 +10,14 @@
     <title>FINDOCTOR - Admin dashboard</title>
 
     <!-- Bootstrap core CSS-->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
-{{--    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@9" rel="stylesheet">--}}
-
-
     <link href="{{URL::asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/admin.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('css/messages.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/dataTables.bootstrap4.css')}}" rel="stylesheet">
     @livewireStyles
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
 
@@ -30,71 +27,47 @@
     <!-- Your custom styles -->
     <!-- WYSIWYG Editor -->
     <link rel="stylesheet" href="{{URL::asset('js/editor/summernote-bs4.css')}}">
-    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
-
-
-
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
     <a class="navbar-brand" href="/"><img src="{{URL::asset('img/logo.png')}}" data-retina="true" alt="" width="163" height="36"></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <div class=" navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/doctor/dashboard">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
-                <a class="nav-link" href="messages.html">
+                <a class="nav-link" href="/doctor/dashboard/messages">
                     <i class="fa fa-fw fa-envelope-open"></i>
                     <span class="nav-link-text">Messages</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookings">
-                <a class="nav-link" href="/dashboard/bookings">
+                <a class="nav-link" href="/doctor/dashboard/bookings">
                     <i class="fa fa-fw fa-calendar-check-o"></i>
                     <span class="nav-link-text">Bookings <span class="badge badge-pill badge-primary">6 New</span></span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
-                <a class="nav-link" href="reviews.html">
+                <a class="nav-link" href="/doctor/dashboard/reviews">
                     <i class="fa fa-fw fa-star"></i>
                     <span class="nav-link-text">Reviews</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookmarks">
-                <a class="nav-link" href="bookmarks.html">
-                    <i class="fa fa-fw fa-heart"></i>
-                    <span class="nav-link-text">Bookmarks</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing">
-                <a class="nav-link" href="add-listing.html">
-                    <i class="fa fa-fw fa-plus-circle"></i>
-                    <span class="nav-link-text">Add listing</span>
-                </a>
-            </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="/patient/dashboard/edit-profile" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="/doctor/dashboard/edit-profile" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">My profile</span>
                 </a>
-                <ul class="sidenav-second-level collapse" id="collapseProfile">
-                    <li>
-                        <a href="user-profile.html">User profile</a>
-                    </li>
-                    <li>
-                        <a href="doctor-profile.html">Doctor profile</a>
-                    </li>
-                </ul>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
@@ -209,7 +182,7 @@
                 </form>
             </li>
             <li class="nav-item">
-                <form method="POST" action="{{ route('doctor.logout') }}">
+                <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <a onclick="event.preventDefault();
           this.closest('form').submit();" class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -228,51 +201,51 @@
             <li class="breadcrumb-item">
                 <a href="#">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Add listing</li>
+            <li class="breadcrumb-item active">Messages</li>
         </ol>
-        @livewire('livewire-ui-modal')
+        <div class="list_general reviews">
+            @livewire('livewire-ui-modal')
 
-        <livewire:appointments-calendar
-            before-calendar-view="patients.calendar_before"
-        />
-    </div>
-    <!-- /.container-fluid-->
-</div>
-
-<!-- /.container-wrapper-->
-<footer class="sticky-footer">
-    <div class="container">
-        <div class="text-center">
-            <small>Copyright © FinDoctor 2017</small>
+            <livewire:appointments-calendar
+                before-calendar-view="patients.calendar_before"
+            />
         </div>
-    </div>
-</footer>
 
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fa fa-angle-up"></i>
-</a>
-<!-- Logout Modal-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+        <!-- /.container-fluid-->
+    </div>
+
+    <!-- /.container-wrapper-->
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                <small>Copyright © FinDoctor 2017</small>
             </div>
         </div>
-    </div>
-</div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div></div>
 <!-- Bootstrap core JavaScript-->
 <script src="{{URL::asset('vendor/jquery/jquery.min.js')}}"></script>
-
 <script src="{{URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}]"></script>
 <!-- Core plugin JavaScript-->
 <script src="{{URL::asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
@@ -305,17 +278,32 @@
         tabsize: 2,
         height: 200
     });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        $('.education_select').select2({
+            tags: true,
+            placeholder: "Add every education information",
+            allowClear: true,
+            multiple: true,
+        });
+
+        $('.specialization_select').select2({
+            tags: true,
+            placeholder: "Ex: Piscologist, Pediatrician...",
+            allowClear: true,
+            multiple: true,
+        });
+    });
+
 
 
 </script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-
 
 
 @livewireScripts
 @livewireCalendarScripts
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<x-livewire-alert::scripts />
 </body>
 </html>

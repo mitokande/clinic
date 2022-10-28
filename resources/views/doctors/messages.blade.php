@@ -39,13 +39,13 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/doctor/dashboard">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
-                <a class="nav-link" href="messages.html">
+                <a class="nav-link" href="/doctor/dashboard/messages">
                     <i class="fa fa-fw fa-envelope-open"></i>
                     <span class="nav-link-text">Messages</span>
                 </a>
@@ -57,36 +57,16 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
-                <a class="nav-link" href="reviews.html">
+                <a class="nav-link" href="/doctor/dashboard/reviews">
                     <i class="fa fa-fw fa-star"></i>
                     <span class="nav-link-text">Reviews</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookmarks">
-                <a class="nav-link" href="bookmarks.html">
-                    <i class="fa fa-fw fa-heart"></i>
-                    <span class="nav-link-text">Bookmarks</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing">
-                <a class="nav-link" href="add-listing.html">
-                    <i class="fa fa-fw fa-plus-circle"></i>
-                    <span class="nav-link-text">Add listing</span>
-                </a>
-            </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProfile" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="/doctor/dashboard/edit-profile" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">My profile</span>
                 </a>
-                <ul class="sidenav-second-level collapse" id="collapseProfile">
-                    <li>
-                        <a href="user-profile.html">User profile</a>
-                    </li>
-                    <li>
-                        <a href="doctor-profile.html">Doctor profile</a>
-                    </li>
-                </ul>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
@@ -223,22 +203,36 @@
             <li class="breadcrumb-item active">Messages</li>
         </ol>
         <div class="chat">
-            <div class="chat-history">
-                <ul>
+            <div class="people-list" id="people-list">
+                <div class="search">
+                    <input type="text" placeholder="search" />
+                    <i class="fa fa-search"></i>
+                </div>
+                <ul class="list">
 
-                    @foreach($messages as $message)
+                    @foreach($inboxes as $inbox)
+                            <?php
+                            $partipicents = $inbox->GetInboxPartipicients();
+                        if(in_array($doctor,$partipicents)){
+                            unset($partipicents[array_search($doctor,$inbox->GetInboxPartipicients())]);
+                            $messengee = array_values($partipicents);
+
+                            ?>
+
                         <li class="clearfix">
                             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt="avatar" />
                             <div class="about">
-                                <div class="name">Mike Thomas</div>
+                                <a href="/doctor/dashboard/message/{{$inbox->id}}"><div class="name">{{$messengee[0]->first_name . " " . $messengee[0]->last_name}}</div></a>
                                 <div class="status">
                                     <i class="fa fa-circle online"></i> online
                                 </div>
                             </div>
                         </li>
+                        <?php } ?>
                     @endforeach
                 </ul></div>
-        </div></div>
+        </div>
+    </div>
     <!-- /.container-fluid-->
 </div>
 

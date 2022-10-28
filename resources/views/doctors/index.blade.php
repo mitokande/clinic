@@ -127,7 +127,7 @@
 
                             <h6>Curriculum</h6>
                             <ul class="list_edu">
-                                @if(!empty($doctor->specialization))
+                                @if(!empty($doctor->education))
                                     @foreach(json_decode($doctor->education) as $education)
                                         <li><strong></strong> - {{$education}}</li>
                                     @endforeach

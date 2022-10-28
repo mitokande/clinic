@@ -43,7 +43,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
     <a class="navbar-brand" href="/"><img src="{{URL::asset('img/logo.png')}}" data-retina="true" alt="" width="163" height="36"></a>
 
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <div class=" navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
                 <a class="nav-link" href="index.html">

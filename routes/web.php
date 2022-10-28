@@ -54,7 +54,9 @@ Route::name('doctor.')->prefix('doctor')->group( function (){
         Route::post('dashboard/edit-profile',[\App\Http\Controllers\Doctor\DashboardController::class,'profile_save']);
         Route::get('dashboard/bookings',[\App\Http\Controllers\Doctor\DashboardController::class,'bookings'])->name('bookings');
         Route::get('dashboard/messages/',[\App\Http\Controllers\Doctor\DashboardController::class,'Messages'])->name('messages');
+        Route::get('dashboard/reviews/',[\App\Http\Controllers\Doctor\DashboardController::class,'Reviews'])->name('reviews');
         Route::get('dashboard/message/{id}',[\App\Http\Controllers\Doctor\DashboardController::class,'ShowInbox']);
+        Route::post('dashboard/message/{id}',[\App\Http\Controllers\Doctor\DashboardController::class,'SendMessage']);
         Route::post('logout', [\App\Http\Controllers\Doctor\AuthController::class, 'destroy'])->name('logout');
 
     });

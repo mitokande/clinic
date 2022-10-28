@@ -251,7 +251,8 @@
                 <input  placeholder="Send A Message" class="form-control" name="content" />
                 <input class="msger-send-btn" type="submit" value="Send">
             </form>
-        </div></div>
+        </div>
+    </div>
     <!-- /.container-fluid-->
 </div>
 

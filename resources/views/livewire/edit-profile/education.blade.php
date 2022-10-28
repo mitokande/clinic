@@ -10,9 +10,11 @@
             <div wire:ignore class="form-group">
                 <label>Add School/University</label>
                 <select wire:model="education" class="form-control education_select" multiple="multiple">
-                    @foreach(json_decode($doctor->education) as $education)
-                        <option selected value="{{$education}}">{{$education}}</option>
-                    @endforeach
+                    @if(!empty($doctor->education))
+                        @foreach(json_decode($doctor->education) as $education)
+                            <option selected value="{{$education}}">{{$education}}</option>
+                        @endforeach
+                    @endif
                 </select>
             </div>
         </div>

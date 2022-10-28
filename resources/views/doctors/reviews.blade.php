@@ -202,37 +202,36 @@
             </li>
             <li class="breadcrumb-item active">Messages</li>
         </ol>
-        <div class="chat">
-            <div class="chat-history">
-                <ul>
+        <div class="list_general reviews">
+            <ul>
+                @if(!empty($reviews))
+                    @foreach($reviews as $review)
+                        <li>
+                            <span>{{$review->created_at}}</span>
+                            <span class="rating">
+                                @for($i = 1;$i<6;$i++)
+                                    @if($i <= $review->rating)
+                                        <i class="fa fa-fw fa-star yellow"></i>
+                                    @else
+                                        <i class="fa fa-fw fa-star "></i>
+                                    @endif
+                                @endfor
 
-                    @foreach($messages as $message)
-                        <li class="clearfix">
-                            <div class="message-data align-{{$message->GetSender() == $doctor ? "right" : "left"}}">
-                                <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
-                                <span class="message-data-name" >{{$message->GetSender()->first_name}}</span> <i class="fa fa-circle me"></i>
 
-                            </div>
-                            <div class="message {{$message->GetSender() == $doctor ? "my" : "other"}}-message float-{{$message->GetSender() == $doctor ? "right" : "left"}}">
-                                {{$message->message}}
-                            </div>
+                            </span>
+                            <figure><img src="{{URL::asset('img/avatar1.jpg')}}" alt=""></figure>
+                            <h4>{{$review->user->getFullName()}}</h4>
+                            <p>{{$review->comment}}</p>
+                            <p class="inline-popups"><a href="#modal-reply" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</a></p>
                         </li>
+
                     @endforeach
-                </ul></div>
-            <form method="POST">
-                @csrf
-                <?php
-                $part = $inbox->GetInboxPartipicients();
-                unset($part[array_search($doctor,$inbox->GetInboxPartipicients())]);
-                $messengee = array_values($part);
-                ?>
-                <input type="hidden" name="sender" value="{{json_encode([$doctor::class,$doctor->id])}}">
-                <input type="hidden" name="receiver" value="{{json_encode([$messengee[0]::class,$messengee[0]->id])}}">
-                <input  placeholder="Send A Message" class="form-control" name="content" />
-                <input class="msger-send-btn" type="submit" value="Send">
-            </form>
+                @endif
+
+
+            </ul>
         </div>
-    </div>
+
     <!-- /.container-fluid-->
 </div>
 
@@ -265,7 +264,7 @@
             </div>
         </div>
     </div>
-</div>
+</div></div>
 <!-- Bootstrap core JavaScript-->
 <script src="{{URL::asset('vendor/jquery/jquery.min.js')}}"></script>
 
@@ -321,16 +320,6 @@
         });
     });
 
-
-    function addService(){
-
-        document.getElementById('pricing-list-container').insertAdjacentHTML('beforeend','<tr class="pricing-list-item"><td><div class="row"><div class="col-md-6">' +
-            '<div class="form-group"><input name="service[]" type="text" class="form-control" placeholder="Title"></div></div>' +
-            '<div class="col-md-4"><div class="form-group">' +
-            '<input name="service_price[]" type="text" class="form-control"  placeholder="Price"></div></div>' +
-            '<div class="col-md-2"><div class="form-group">' +
-            '<a onclick="delService()" class="delete" href="#"><i class="fa fa-fw fa-remove"></i></a></div></div></div></td></tr>');
-    }
 
 
 </script>

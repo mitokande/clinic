@@ -45,8 +45,11 @@ class Services extends Component
 
     public function render()
     {
-        $this->service = array_keys(json_decode($this->doctor->service,true));
-        $this->service_price = array_values(json_decode($this->doctor->service,true));
+        if($this->doctor->service != null){
+            $this->service = array_keys(json_decode($this->doctor->service,true));
+            $this->service_price = array_values(json_decode($this->doctor->service,true));
+
+        }
         return view('livewire.edit-profile.services',['doctor'=>$this->doctor]);
     }
 }

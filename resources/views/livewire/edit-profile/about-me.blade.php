@@ -18,10 +18,11 @@
             <div wire:ignore class="form-group">
                 <label>Specialization <a href="#0" data-toggle="tooltip" data-placement="top" title="Separated by commas"><i class="fa fa-fw fa-question-circle"></i></a></label>
                 <select wire:model="specialization" class="form-control specialization_select" multiple="multiple">
-
+                    @if(!empty($doctor->specialization))
                         @foreach(json_decode($doctor->specialization) as $specialization)
                             <option selected value="{{$specialization}}">{{$specialization}}</option>
                         @endforeach
+                    @endif
                 </select>
                 {{--                        <input type="text" class="form-control" placeholder="Ex: Piscologist, Pediatrician...">--}}
             </div>
