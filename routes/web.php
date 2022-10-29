@@ -28,7 +28,7 @@ Route::name('patient.')->prefix('patient')->group( function (){
     Route::middleware('is_patient')->group(function (){
         Route::get('dashboard',[\App\Http\Controllers\Patient\DashboardController::class,'index'])->name('dashboard');
         Route::post('dashboard',[\App\Http\Controllers\Patient\DashboardController::class,'FinishOnboard']);
-        Route::get('bookings',[\App\Http\Controllers\Patient\DashboardController::class,'bookings']);
+        Route::get('dashboard/bookings',[\App\Http\Controllers\Patient\DashboardController::class,'bookings']);
         Route::get('dashboard/edit-profile',[\App\Http\Controllers\Patient\DashboardController::class,'profile_edit'])->name('profile-edit');
         Route::post('dashboard/edit-profile',[\App\Http\Controllers\Patient\DashboardController::class,'profile_save']);
         Route::get('dashboard/messages/',[\App\Http\Controllers\Patient\DashboardController::class,'Messages'])->name('messages');
