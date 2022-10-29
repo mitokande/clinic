@@ -59,7 +59,7 @@
                 <select wire:model="spec" class="form-control" >
                     <option  value="">Select a category</option>
                     @foreach ($specs as $item)
-                        <option value="{{$item->name}}">{{$item->name}}</option>
+                        <option value="{{$item->id}}">{{$item->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -79,10 +79,21 @@
                             <figure>
                                 <a href="/doctor/{{$doctor->username}}"><img src="{{$doctor->profile_picture}}" alt=""></a>
                             </figure>
-                            <small>{{$doctor->specialization}}</small>
+                            <small>{{$doctor->field()->name}}</small>
                             <a href="/doctor/{{$doctor->username}}"><h3>{{$doctor->first_name.' '.$doctor->last_name}}</h3></a>
                             <p>{{$doctor->about}}....</p>
-                            <span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
+                            <span class="rating">
+                                @for($i = 1;$i<6;$i++)
+                                    @if($i <= intval($doctor->averageRating))
+                                        <i class="icon_star" style="color: #ffc107"></i>
+                                    @else
+                                        <i class="icon_star"></i>
+                                    @endif
+                                @endfor
+
+
+                                <small>(145)</small>
+                            </span>
                             <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="../img/badges/badge_1.svg" width="15" height="15" alt=""></a>
                             <ul>
                                 <li><a href="#0" onclick="onHtmlClick('Doctors', 0)" class="btn_listing">View on Map</a></li>

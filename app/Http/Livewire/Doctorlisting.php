@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Doctor;
+use App\Models\MedicineField;
 use App\Models\Specialization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -24,10 +25,11 @@ class Doctorlisting extends Component
 
     public function render()
     {
+        //$medicine = MedicineField::query()->where('name',$this->spec);
         // $this->doctors = Doctor::where("first_name","like",'%'.$this->search.'%')->paginate(5);
         return view('livewire.doctorlisting',[
-            'doctors' => Doctor::when($this->search)->search(trim($this->search))->where("specialization","like","%".$this->spec."%")->paginate(5),
-            'specs' => Specialization::all()
+            'doctors' => Doctor::when($this->search)->search(trim($this->search))->when($this->spec)->where("medicine_field_id",$this->spec)->paginate(5),
+            'specs' => MedicineField::all()
         ]);
     }
 }
