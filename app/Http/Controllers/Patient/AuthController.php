@@ -31,7 +31,9 @@ class AuthController extends Controller
             return back()->with('error','Email or Password is incorrect.');
         }
 
+        Auth::guard('doctors')->logout();
         Auth::guard('patients')->login($model);
+        session(['guard'=>'patients']);
         return redirect()->route('patient.dashboard');
 
     }
@@ -84,7 +86,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-
+        session()->forget('guard');
         return redirect('/');
     }
 }
