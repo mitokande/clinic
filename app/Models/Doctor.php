@@ -24,6 +24,7 @@ class Doctor extends Authenticatable implements Viewable
         'first_name',
         'last_name',
         'email',
+        'telephone',
         'password',
         'profile_picture',
         'medicine_field_id',

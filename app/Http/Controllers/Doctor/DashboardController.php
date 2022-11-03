@@ -74,4 +74,9 @@ class DashboardController extends Controller
             'reviews' => $reviews
         ]);
     }
+    public function blogs(){
+        return view('doctors.blog',[
+            'doctor'=>Auth::guard('doctors')->user()
+        ]);
+    }
 }

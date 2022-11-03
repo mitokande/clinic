@@ -134,7 +134,10 @@
     <!-- container -->
 </header>
 <!-- /Header -->
-
+@php
+    $fields = \App\Models\MedicineField::all();
+    $titles = \App\Models\DoctorTitle::all();
+@endphp
 <main>
     <div class="bg_color_2">
         <div class="container margin_60_35">
@@ -142,7 +145,7 @@
                 <h1>Please register to Findoctor!</h1>
                 <div class="row justify-content-center">
                     <div class="col-md-5">
-                        <form method="post" action="{{ route('doctor.register') }}">
+                        <form method="post" action="{{ route('doctor.register') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="box_form">
                                 <div class="form-group row">
@@ -154,6 +157,14 @@
                                         <label>Last Name</label>
                                         <input type="text" class="form-control" name="last_name" placeholder="Your last name">
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Your Field</label>
+                                    <select class="form-select" name="doctor_title_id">
+                                        @foreach($titles as $title)
+                                            <option value="{{$title->id}}">{{$title->title_name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
@@ -171,26 +182,20 @@
                                     <label>Telephone</label>
                                     <input type="number" class="form-control"  name="telephone" placeholder="Telephone Number">
                                 </div>
-                                @php
-                                    $fields = \App\Models\MedicineField::all();
-                                    $titles =
-                                @endphp
+
                                 <div class="form-group">
                                     <label>Your Field</label>
                                     <select class="form-select" name="medicine_field_id">
-
                                         @foreach($fields as $field)
                                             <option value="{{$field->id}}">{{$field->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Your Field</label>
-                                    <select class="form-select" name="medicine_field_id">
-                                        @foreach($fields as $field)
-                                            <option value="{{$field->id}}">{{$field->name}}</option>
-                                        @endforeach
-                                    </select>
+                                    <label>Profile Picture</label>
+                                    <input type="file" class="form-control"  name="profile_picture" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
+                                    <img style="width: 100%;" id="pic" />
+
                                 </div>
                                 <div id="pass-info" class="clearfix"></div>
                                 <div class="checkbox-holder text-left">

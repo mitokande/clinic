@@ -49,6 +49,17 @@ Route::get('messages/{id}',function ($id){
 Route::name('doctor.')->prefix('doctor')->group( function (){
     Route::middleware('is_doctor')->group(function (){
         Route::get('dashboard',[\App\Http\Controllers\Doctor\DashboardController::class,'index'])->name('dashboard');
+        Route::get('/dashboard/blogs',[\App\Http\Controllers\BlogController::class,'list'])->name('blogs');
+        Route::get('/dashboard/blogs/add',[\App\Http\Controllers\BlogController::class,'create']);
+        Route::post('/dashboard/blogs/add',[\App\Http\Controllers\BlogController::class,'store'])->name('add-blog');
+        Route::get('/dashboard/blogs/{id}',[\App\Http\Controllers\BlogController::class,'index']);
+        Route::get('/dashboard/blogs/edit/{id}',[\App\Http\Controllers\BlogController::class,'edit']);
+        Route::post('/dashboard/blogs/edit/{id}',[\App\Http\Controllers\BlogController::class,'update'])->name('update-blog');
+        Route::get('/dashboard/blogs/delete/{id}',[\App\Http\Controllers\BlogController::class,'destroy'])->name('delete-blog');
+
+
+
+
         Route::post('logout', [\App\Http\Controllers\Doctor\AuthController::class, 'destroy'])->name('logout');
         Route::get('dashboard/edit-profile',[\App\Http\Controllers\Doctor\DashboardController::class,'profile_edit'])->name('profile-edit');
         Route::post('dashboard/edit-profile',[\App\Http\Controllers\Doctor\DashboardController::class,'profile_save']);

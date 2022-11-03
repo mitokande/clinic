@@ -13,6 +13,8 @@
     <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/admin.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('css/messages.css')}}" rel="stylesheet">
+
     <link href="{{URL::asset('css/dataTables.bootstrap4.css')}}" rel="stylesheet">
     @livewireStyles
     <!-- GOOGLE WEB FONT -->
@@ -24,7 +26,56 @@
     <!-- Your custom styles -->
     <!-- WYSIWYG Editor -->
     <link rel="stylesheet" href="{{URL::asset('js/editor/summernote-bs4.css')}}">
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        .d-flex{
+            display: flex;
+        }
+        .flex-column{
+            flex-direction: column;
+        }
+        .g-20{
+            gap: 20px;
+        }
+        .g-5{
+            gap: 5px;
+        }
+        .justify-between{
+            justify-content: space-between;
+        }
+        .align-center{
+            align-items: center;
+        }
+        .btn-danger {
+            color: #fff !important;
+            background-color: #dc3545 !important;
+            border-color: #dc3545 !important;
+        }
+        .btn-primary {
+            color: #fff !important;
+            background-color: #0d6efd !important;
+            border-color: #0d6efd !important;
+        }
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+    </style>
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
@@ -188,8 +239,43 @@
         </ul>
     </div>
 </nav>
-<!-- /Navigation-->
-    @livewire('doctor-edit-profile')
+@php
+    $fields = \App\Models\MedicineField::all();
+    $titles = \App\Models\DoctorTitle::all();
+@endphp
+    <!-- /Navigation-->
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Blogs</li>
+        </ol>
+        <div class="py-12">
+            <div class="d-flex flex-column g-20 max-w-7xl mx-auto sm:px-6 lg:px-8">
+                @foreach($blogs as $blog)
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="d-flex align-center justify-between g-5 p-5 bg-white border-b border-gray-200">
+                            <div>
+                                <a target="_blank" href="/{{$blog->slugName()}}">{{$blog->title}}</a>
+                            </div>
+                            <div class="d-flex g-5">
+                                <a href="/doctor/dashboard/blogs/edit/{{$blog->id}}"><button type="button" class="btn btn-primary">Edit</button></a>
+                                <a href="/doctor/dashboard/blogs/delete/{{$blog->id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid-->
+</div>
+
 <!-- /.container-wrapper-->
 <footer class="sticky-footer">
     <div class="container">
@@ -239,8 +325,7 @@
 <script src="{{URL::asset('vendor/dropzone.min.js')}}"></script>
 <!-- WYSIWYG Editor -->
 <script src="{{URL::asset('js/editor/summernote-bs4.min.js')}}"></script>
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <script>
     $('.editor').summernote({
         fontSizes: ['10', '14'],
@@ -291,5 +376,6 @@
 
 
 @livewireScripts
+
 </body>
 </html>

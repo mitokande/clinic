@@ -181,7 +181,7 @@
                 </form>
             </li>
             <li class="nav-item">
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('patient.logout') }}">
                     @csrf
                     <a onclick="event.preventDefault();
           this.closest('form').submit();" class="nav-link" data-toggle="modal" data-target="#exampleModal">

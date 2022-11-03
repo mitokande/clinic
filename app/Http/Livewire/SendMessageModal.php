@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Http\Controllers\MessageController;
 use App\Models\Doctor;
 use App\Models\Patient;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
@@ -15,9 +16,10 @@ class SendMessageModal extends ModalComponent
     public $doctor;
     public $content;
     public $email;
+    public $test;
     public $password;
-    public function mount(){
-        $this->doctor = Doctor::find(1);
+    public function mount($doctorID){
+        $this->doctor = Doctor::find($doctorID);
     }
     public function SendMessage(){
         MessageController::SendMessage($this->content,Auth::guard('patients')->user(),$this->doctor);
@@ -36,9 +38,11 @@ class SendMessageModal extends ModalComponent
     }
     public function render()
     {
+
         if(Auth::guard('patients')->check()){
             return view('livewire.send-message-modal',[
-                'doctor'=>$this->doctor
+                'doctor'=>$this->doctor,
+                'test' =>$this->test,
             ]);
         }
         else{

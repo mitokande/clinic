@@ -77,7 +77,7 @@
                         <div wire:key="item-{{ $doctor->id }}" class="strip_list">
                             <a href="#0" class="wish_bt"></a>
                             <figure>
-                                <a href="/doctor/{{$doctor->username}}"><img src="{{$doctor->profile_picture}}" alt=""></a>
+                                <a href="/doctor/{{$doctor->username}}"><img src="{{URL::asset('images/doctors/profile/'.$doctor->profile_picture)}}" alt=""></a>
                             </figure>
                             <small>{{$doctor->field()->name}}</small>
                             <a href="/doctor/{{$doctor->username}}"><h3>{{$doctor->first_name.' '.$doctor->last_name}}</h3></a>

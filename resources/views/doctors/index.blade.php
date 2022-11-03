@@ -59,7 +59,7 @@
                             <div class="row">
                                 <div class="col-lg-5 col-md-4">
                                     <figure>
-                                        <img src="{{$doctor->profile_picture}}" alt="" class="img-fluid">
+                                        <img src="{{URL::asset('images/doctors/profile/'.$doctor->profile_picture)}}" alt="" class="img-fluid">
                                     </figure>
                                 </div>
                                 <div class="col-lg-7 col-md-8">
@@ -67,7 +67,7 @@
                                     <h1>{{$doctor->first_name.' '.$doctor->last_name}}</h1>
 
                                     @livewire('doctor-stats',['doctor'=>$doctor])
-                                    <button onclick="Livewire.emit('openModal','send-message-modal')" class="msger-send-btn">Send Message</button>
+                                    <button onclick="Livewire.emit('openModal','send-message-modal',{{ json_encode(["doctorID" => $doctor->id]) }})" class="msger-send-btn">Send Message</button>
                                     <ul class="contacts">
                                         <li>
                                             <h6>Address</h6>

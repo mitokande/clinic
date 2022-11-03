@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Doctor;
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
 
 use App\Providers\RouteServiceProvider;
@@ -57,19 +58,27 @@ class AuthController extends Controller
             'email' => ['required', 'string',  'max:255', 'unique:doctors'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
+//        dd($request);
+        $fileName = time().$request->file('profile_picture')->getClientOriginalName();
+        $request->file('profile_picture')->move(public_path("images/doctors/profile"), $fileName);
         $user = Doctor::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'username' => Doctor::getUsername($request->first_name." ".$request->last_name),
             'email' => $request->email,
+            'telephone' => $request->telephone,
             'password' => Hash::make($request->password),
+            'medicine_field_id' => $request->medicine_field_id,
+            'doctor_title_id'=> $request->doctor_title_id,
+            'profile_picture' => $fileName
         ]);
 
         event(new Registered($user));
 
         Auth::guard('doctors')->login($user);
-
+        Mail::send("misc.email-registration",["name"=>$user->getFullName()],function ($message) use(&$user){
+            $message->to($user->email,$user->getFullName())->subject("Registration Complete");
+        });
         return redirect('/doctor/dashboard');
     }
     /**

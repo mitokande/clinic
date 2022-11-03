@@ -48,9 +48,10 @@ class DatabaseSeeder extends Seeder
             ['name'=>'Urology']
         ]);
         DB::table('doctor_titles')->insert([
-            ['name'=>'Intern'],
-            ['name'=>'Prof. Dr.'],
-            ['name'=>'Dr.']
+            ['title_name'=>'Intern'],
+            ['title_name'=>'Prof. Dr.'],
+            ['title_name'=>'Doç. Dr.'],
+            ['title_name'=>'Dr.']
         ]);
 
         DB::table('doctors')->insert([
