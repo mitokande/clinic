@@ -52,15 +52,16 @@ class AuthController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string',  'max:255', 'unique:doctors'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = Doctor::create([
-            'username' => $request->name,
-            'first_name' => " ",
-            'last_name' => " ",
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'username' => Doctor::getUsername($request->first_name." ".$request->last_name),
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
@@ -69,7 +70,7 @@ class AuthController extends Controller
 
         Auth::guard('doctors')->login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect('/doctor/dashboard');
     }
     /**
      * Destroy an authenticated session.

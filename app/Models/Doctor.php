@@ -25,7 +25,9 @@ class Doctor extends Authenticatable implements Viewable
         'last_name',
         'email',
         'password',
-        'profile_picture'
+        'profile_picture',
+        'medicine_field_id',
+        'doctor_title_id',
     ];
 
 
@@ -67,5 +69,7 @@ class Doctor extends Authenticatable implements Viewable
     public function field(){
         return MedicineField::find($this->medicine_field_id);
     }
-
+    public function title(){
+        return DoctorTitle::find($this->doctor_title_id);
+    }
 }

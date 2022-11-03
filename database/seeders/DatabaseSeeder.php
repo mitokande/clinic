@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Doctor;
+use App\Models\DoctorTitle;
 use App\Models\MedicineField;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -46,6 +47,11 @@ class DatabaseSeeder extends Seeder
             ['name'=>'Surgery'],
             ['name'=>'Urology']
         ]);
+        DB::table('doctor_titles')->insert([
+            ['name'=>'Intern'],
+            ['name'=>'Prof. Dr.'],
+            ['name'=>'Dr.']
+        ]);
 
         DB::table('doctors')->insert([
             'username' => 'omer-toprak',
@@ -55,6 +61,7 @@ class DatabaseSeeder extends Seeder
             'telephone' => '5397245035',
             'password' => Hash::make('123123123'),
             'medicine_field_id' => MedicineField::find(1)->id,
+            'doctor_title_id'=> DoctorTitle::find(3)->id,
             'profile_picture' => 'https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg'
         ]);
         DB::table('patients')->insert([
