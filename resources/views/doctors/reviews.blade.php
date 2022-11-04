@@ -222,7 +222,16 @@
                             <figure><img src="{{URL::asset('img/avatar1.jpg')}}" alt=""></figure>
                             <h4>{{$review->user->getFullName()}}</h4>
                             <p>{{$review->comment}}</p>
-                            <p class="inline-popups"><a href="#modal-reply" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</a></p>
+                            @if($review->answer == null)
+                                <form method="post" action="/doctor/dashboard/reviews/{{$review->id}}">
+                                    @csrf
+                                    <textarea name="answer" id="" cols="30" rows="10" class="form-control"></textarea>
+                                    <p class="inline-popups"><button type="submit" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</button></p>
+                                </form>
+                            @else
+                                <p>{{$review->answer}}</p>
+                            @endif
+
                         </li>
 
                     @endforeach

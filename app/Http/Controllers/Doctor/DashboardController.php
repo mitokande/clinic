@@ -79,4 +79,11 @@ class DashboardController extends Controller
             'doctor'=>Auth::guard('doctors')->user()
         ]);
     }
+
+    public function ReviewAnswer(Request $request, $reviewID){
+        $review = Rating::find($reviewID);
+        $review->answer = $request->answer;
+        $review->save();
+        return redirect('/doctor/dashboard/reviews');
+    }
 }

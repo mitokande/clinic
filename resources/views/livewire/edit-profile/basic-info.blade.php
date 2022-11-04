@@ -1,5 +1,5 @@
 <div class="box_general padding_bottom">
-    <form wire:submit.prevent="save" method="POST">
+    <form wire:submit.prevent="save" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="header_box version_2">
             <h2><i class="fa fa-file"></i>Basic info</h2>
@@ -39,7 +39,10 @@
                 <div class="form-group">
                     <label>Profile picture</label>
                     <br>
-                    <input type="file">
+                    <input wire::model="profile_picture" type="file" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
+
+                    <img src="{{ URL::asset('images/doctors/profile/'.$doctor->profile_picture) }}" id="pic" style="width: 200px"/>
+
                     {{--                        <form action="/file-upload" class="dropzone" ></form>--}}
                 </div>
             </div>

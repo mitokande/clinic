@@ -202,7 +202,7 @@
         </ol>
 
 
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             @csrf
     <div class="box_general padding_bottom">
 
@@ -245,7 +245,10 @@
                     <div class="form-group">
                         <label>Profile picture</label>
                         <br>
-                        <input type="file">
+                        <input name="profile_picture" type="file" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
+
+                        <img src="{{ URL::asset('images/patients/profile/'.$patient->profile_picture) }}" id="pic" style="width: 200px"/>
+
                         {{--                        <form action="/file-upload" class="dropzone" ></form>--}}
                     </div>
                 </div>

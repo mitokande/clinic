@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Patient;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
 use App\Models\Patient;
 use App\Providers\RouteServiceProvider;
@@ -56,20 +57,28 @@ class AuthController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:patients'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
+        $fileName = time().$request->file('profile_picture')->getClientOriginalName();
+        $request->file('profile_picture')->move(public_path("images/patients/profile"), $fileName);
         $user = Patient::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'telephone' => $request->telephone
+            'telephone' => $request->telephone,
+            'profile_picture' => $fileName
         ]);
 
 
         event(new Registered($user));
 
-        Auth::guard('patients')->login($user);
 
+
+        Auth::guard('doctors')->logout();
+        Auth::guard('patients')->login($user);
+        session(['guard'=>'patients']);
+        Mail::send("misc.email-registration",["name"=>$user->getFullName()],function ($message) use(&$user){
+            $message->to($user->email,$user->getFullName())->subject("Registration Complete");
+        });
         return redirect('patient'.RouteServiceProvider::HOME);
     }
 

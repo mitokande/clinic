@@ -5,9 +5,19 @@
             <p>
                 Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
             </p>
+            @php
+                $fields = \App\Models\MedicineField::all();
+                $titles = \App\Models\DoctorTitle::all();
+            @endphp
             <form method="get" action="/doctors">
                 <div id="custom-search-input">
                     <div class="input-group">
+
+                        <select class="custom-input js-example-basic-multiple" id="bCategories" name="bCategories[]" multiple="multiple">
+                            @foreach($fields as $field)
+                                <option value="{{$field->name}}">{{$field->name}}</option>
+                            @endforeach
+                        </select>
                         <input type="text" class=" search-query" name="search" placeholder="Ex. Name, Specialization ....">
                         <input type="submit" class="btn_search" value="Search">
                     </div>

@@ -99,12 +99,22 @@
                             @endfor
                         </div>
                         <div class="rev-info">
-                            Admin – {{$rating->rating}} April 03, 2016:
+                            {{\App\Models\Patient::find($rating->user_id)->getFullName()}} – {{$rating->rating . " Yıldız " . $rating->created_at}}:
                         </div>
                         <div class="rev-text">
                             <p>
                                 {{$rating->comment}}
                             </p>
+
+                        </div>
+                        <div class="rev-info" style="margin-left: 10%">
+                            {{\App\Models\Doctor::find($rating->rateable_id)->getFullName()}} – {{$rating->rating . " Yıldız "}}
+                        </div>
+                        <div class="rev-text" style="margin-left: 10%" >
+                            <p>
+                                {{$rating->answer }}
+                            </p>
+
                         </div>
                     </div>
                 </div>

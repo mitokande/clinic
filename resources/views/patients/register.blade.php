@@ -142,7 +142,7 @@
                 <h1>Please register to Findoctor!</h1>
                 <div class="row justify-content-center">
                     <div class="col-md-5">
-                        <form method="post" action="{{ route('patient.register') }}">
+                        <form method="post" action="{{ route('patient.register') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="box_form">
                                 <div class="form-group row">
@@ -170,6 +170,12 @@
                                 <div class="form-group">
                                     <label>Telephone</label>
                                     <input type="number" class="form-control"  name="telephone" placeholder="Telephone Number">
+                                </div>
+                                <div class="form-group">
+                                    <label>Profile Picture</label>
+                                    <input type="file" class="form-control"  name="profile_picture" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
+                                    <img style="width: 100%;" id="pic" />
+
                                 </div>
                                 <div id="pass-info" class="clearfix"></div>
                                 <div class="checkbox-holder text-left">

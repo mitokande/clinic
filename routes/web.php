@@ -57,6 +57,7 @@ Route::name('doctor.')->prefix('doctor')->group( function (){
         Route::post('/dashboard/blogs/edit/{id}',[\App\Http\Controllers\BlogController::class,'update'])->name('update-blog');
         Route::get('/dashboard/blogs/delete/{id}',[\App\Http\Controllers\BlogController::class,'destroy'])->name('delete-blog');
 
+        Route::post('/dashboard/reviews/{reviewID}',[\App\Http\Controllers\Doctor\DashboardController::class,'ReviewAnswer'])->name('review_answer');
 
 
 

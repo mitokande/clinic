@@ -21,6 +21,7 @@ class Patient extends Authenticatable
         'telephone',
         'email',
         'password',
+        'profile_picture'
     ];
 
 

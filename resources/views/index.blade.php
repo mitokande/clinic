@@ -10,6 +10,7 @@
     <link href="{{URL::asset('css/menu.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/vendors.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/icon_fonts/css/all_icons_min.css')}}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 
 </head>
@@ -32,6 +33,7 @@
 
 <!-- COMMON SCRIPTS -->
 <script src="{{URL::asset('js/jquery-3.6.0.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="{{URL::asset('js/common_scripts.min.js')}}"></script>
 <script src="{{URL::asset('js/functions.js')}}"></script>
 <!-- Modernizr -->
@@ -83,6 +85,10 @@
         autoPlayVideo: true
     });
 </script>
-
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+</script>
 </body>
 </html>
