@@ -13,6 +13,8 @@
     <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/admin.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('css/messages.css')}}" rel="stylesheet">
+
     <link href="{{URL::asset('css/dataTables.bootstrap4.css')}}" rel="stylesheet">
     @livewireStyles
     <!-- GOOGLE WEB FONT -->
@@ -24,7 +26,8 @@
     <!-- Your custom styles -->
     <!-- WYSIWYG Editor -->
     <link rel="stylesheet" href="{{URL::asset('js/editor/summernote-bs4.css')}}">
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{URL::asset('css/adminlte.min.css')}}">
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
@@ -188,8 +191,103 @@
         </ul>
     </div>
 </nav>
-<!-- /Navigation-->
-    @livewire('doctor-edit-profile',['doctor'=>$doctor])
+@php
+    $fields = \App\Models\MedicineField::all();
+    $titles = \App\Models\DoctorTitle::all();
+@endphp
+    <!-- /Navigation-->
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Contacts</h1>
+                </div>
+                <div class="col-sm-6">
+
+                    <ol class="breadcrumb float-sm-right">
+                        <a href="/doctor/dashboard/doctors/add" class="btn btn-sm bg-teal" style="margin-right: 24px">
+                            <i class="fas fa-user"></i> Add New Doctor
+                        </a>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Contacts</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card card-solid">
+            <div class="card-body pb-0">
+                <div class="row">
+                    @foreach($doctors as $doctor)
+                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                            <div class="card bg-light d-flex flex-fill">
+                                <div class="card-header text-muted border-bottom-0">
+                                    {{$doctor->title()->title_name}}
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <h2 class="lead"><b>{{$doctor->getFullName()}}</b></h2>
+                                            <p class="text-muted text-sm"><b>Field: </b> {{$doctor->field()->name}} </p>
+                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: {{$doctor->address}}</li>
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: {{$doctor->telephone}}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-5 text-center">
+                                            <img src="{{URL::asset('images/doctors/profile/'.$doctor->profile_picture)}}    " alt="user-avatar" class="img-circle img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="text-right">
+                                        <a href="/doctor/dashboard/edit-profile/{{$doctor->id}}" class="btn btn-sm bg-teal">
+                                            <i class="fas fa-user"> Edit Profile</i>
+                                        </a>
+                                        <a href="/doctor/{{$doctor->username}}" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-user"></i> View Profile
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <nav aria-label="Contacts Page Navigation">
+                    <ul class="pagination justify-content-center m-0">
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                        <li class="page-item"><a class="page-link" href="#">7</a></li>
+                        <li class="page-item"><a class="page-link" href="#">8</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- /.card-footer -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+
+
 <!-- /.container-wrapper-->
 <footer class="sticky-footer">
     <div class="container">
@@ -239,8 +337,7 @@
 <script src="{{URL::asset('vendor/dropzone.min.js')}}"></script>
 <!-- WYSIWYG Editor -->
 <script src="{{URL::asset('js/editor/summernote-bs4.min.js')}}"></script>
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <script>
     $('.editor').summernote({
         fontSizes: ['10', '14'],
@@ -291,5 +388,6 @@
 
 
 @livewireScripts
+
 </body>
 </html>

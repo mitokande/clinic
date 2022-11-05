@@ -13,9 +13,10 @@
                 <div id="custom-search-input">
                     <div class="input-group">
 
-                        <select class="custom-input js-example-basic-multiple" id="bCategories" name="bCategories[]" multiple="multiple">
+                        <select class="custom-input js-example-basic-multiple"  name="spec">
+                            <option value="">Select a Field</option>
                             @foreach($fields as $field)
-                                <option value="{{$field->name}}">{{$field->name}}</option>
+                                <option value="{{$field->id}}">{{$field->name}}</option>
                             @endforeach
                         </select>
                         <input type="text" class=" search-query" name="search" placeholder="Ex. Name, Specialization ....">

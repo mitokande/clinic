@@ -30,10 +30,10 @@ class BasicInfo extends Component
         $this->doctor->last_name = $this->last_name;
         $this->doctor->email = $this->email;
         $this->doctor->telephone = $this->telephone;
-        $fileName = time().$this->profile_picture->getClientOriginalName();
-        $this->doctor->profile_picture = $fileName;
-        $this->doctor->profile_picture = $fileName;
-        $this->profile_picture->move(public_path("/images/doctors/profile"), $fileName);
+//        $fileName = time().$this->profile_picture->getClientOriginalName();
+//        $this->doctor->profile_picture = $fileName;
+//        $this->doctor->profile_picture = $fileName;
+//        $this->profile_picture->move(public_path("/images/doctors/profile"), $fileName);
         $this->doctor->save();
     }
 

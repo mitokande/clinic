@@ -21,7 +21,7 @@ class Doctorlisting extends Component
 
     public $spec;
 
-    protected $queryString = ['spec'];
+    protected $queryString = ['spec','search'];
 
     public function render()
     {

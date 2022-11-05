@@ -8,8 +8,8 @@ use Livewire\Component;
 class DoctorEditProfile extends Component
 {
     public $doctor;
-    public function mount(){
-        $this->doctor = Auth::guard('doctors')->user();
+    public function mount($doctor){
+        $this->doctor = $doctor;
     }
     public function delService($service){
         $serv = json_decode($this->doctor->service,true);

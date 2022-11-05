@@ -56,7 +56,6 @@ Route::name('doctor.')->prefix('doctor')->group( function (){
         Route::get('/dashboard/blogs/edit/{id}',[\App\Http\Controllers\BlogController::class,'edit']);
         Route::post('/dashboard/blogs/edit/{id}',[\App\Http\Controllers\BlogController::class,'update'])->name('update-blog');
         Route::get('/dashboard/blogs/delete/{id}',[\App\Http\Controllers\BlogController::class,'destroy'])->name('delete-blog');
-
         Route::post('/dashboard/reviews/{reviewID}',[\App\Http\Controllers\Doctor\DashboardController::class,'ReviewAnswer'])->name('review_answer');
 
 
@@ -70,7 +69,12 @@ Route::name('doctor.')->prefix('doctor')->group( function (){
         Route::get('dashboard/message/{id}',[\App\Http\Controllers\Doctor\DashboardController::class,'ShowInbox']);
         Route::post('dashboard/message/{id}',[\App\Http\Controllers\Doctor\DashboardController::class,'SendMessage']);
         Route::post('logout', [\App\Http\Controllers\Doctor\AuthController::class, 'destroy'])->name('logout');
-
+        Route::middleware('is_admin')->group(function(){
+            Route::get('/dashboard/doctors',[\App\Http\Controllers\Admin\DashboardController::class,'list']);
+            Route::get('/dashboard/edit-profile/add',[\App\Http\Controllers\Admin\DashboardController::class,'add_doctor']);
+            Route::get('/dashboard/edit-profile/{doctorID}',[\App\Http\Controllers\Admin\DashboardController::class,'profile_edit']);
+            Route::post('/dashboard/edit-profile/{doctorID}',[\App\Http\Controllers\Admin\DashboardController::class,'profile_update']);
+        });
     });
     Route::get('login',[\App\Http\Controllers\Doctor\AuthController::class,'login'])->name('login');
     Route::get('register',[\App\Http\Controllers\Doctor\AuthController::class,'register']);
