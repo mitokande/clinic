@@ -92,4 +92,8 @@ Route::get('/register/doctor',[\App\Http\Controllers\Doctor\AuthController::clas
 Route::post('/register/doctor',[\App\Http\Controllers\Doctor\AuthController::class,'store'])->name('doctor-register');
 Route::get('/register/patient',[\App\Http\Controllers\Patient\AuthController::class,'register']);
 Route::post('/register/patient',[\App\Http\Controllers\Patient\AuthController::class,'store'])->name('patient-register');
+
+
+Route::get('/{blogname}',[\App\Http\Controllers\BlogController::class,'index']);
+
 require __DIR__.'/auth.php';

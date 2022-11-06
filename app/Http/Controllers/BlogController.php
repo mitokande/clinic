@@ -19,6 +19,7 @@ class BlogController extends Controller
         $fileName = time().$request->file('bImg')->getClientOriginalName();
         $blog = new Blog;
         $blog->title = $request->bTitle;
+        $blog->slug = $blog->slugName();
         $blog->content = $request->bContent;
         $blog->category = json_encode($request->bCategories);
         $blog->thumbnail_url = $fileName;
@@ -35,16 +36,22 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     #public function show(Blog $blog)
-    public function index($id)
-    {
-        $blog = Blog::find($id);
-        if($blog == null){
-            abort(404);
-        }else{
-            return view('doctors.blogs', ['blog'=>$blog]);
-        }
-    }
+//    public function index($id)
+//    {
+//        $blog = Blog::find($id);
+//        if($blog == null){
+//            abort(404);
+//        }else{
+//            return view('doctors.blogs', ['blog'=>$blog]);
+//        }
+//    }
+    public function index($blogname){
+        $blog = Blog::query()->where('slug','=',$blogname)->firstOrFail();
 
+        return view('single-blog',[
+            'blog'=>$blog
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -115,4 +122,6 @@ class BlogController extends Controller
         $blogs = Blog::orderByDesc('id')->get();
         return view('doctors.blogs', ['blogs'=>$blogs]);
     }
+
+
 }

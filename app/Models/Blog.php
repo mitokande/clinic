@@ -21,6 +21,10 @@ class Blog extends Model implements Viewable
 
     public function user()
     {
-        return $this->belongsTo(Doctor::class);
+        return $this->belongsTo(Doctor::class,'author_id');
+    }
+
+    public function setSlugName($slug){
+
     }
 }
