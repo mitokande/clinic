@@ -92,7 +92,7 @@
                 </div>
             </div>
             <!-- /aside -->
-            <div class="col-lg-6">
+            <div class="col-lg-7">
                 <div class="bloglist singlepost">
                     <p><img alt="" style="height: max-content" class="img-fluid" src="{{URL::asset('/images/blogs/thumbnails/'.$blog->thumbnail_url)}}"></p>
                     <h1>{{$blog->title}}</h1>
@@ -209,7 +209,7 @@
                 </form>
             </div>
             <!-- /col -->
-            <aside class="col-lg-3">
+            <aside class="col-lg-2">
                 <div class="widget">
                     <form>
                         <div class="form-group">
