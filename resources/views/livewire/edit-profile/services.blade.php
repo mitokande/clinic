@@ -4,7 +4,7 @@
     <div class="header_box version_2">
         <h2><i class="fa fa-folder"></i>Services - Pricing</h2>
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom: 14px;">
         <div class="col-md-12">
             <h6>Treatments</h6>
             <table id="pricing-list-container" style="width:100%;">
@@ -39,7 +39,7 @@
         </div>
     </div>
     <!-- /row-->
-        <p><button type="submit" class="btn_1 medium">Save</button></p>
+    <button style="width: 100%; border-radius: 8px;" type="submit" class="btn_1 medium">Save</button>
     </form>
 </div>
 <!-- /box_general-->

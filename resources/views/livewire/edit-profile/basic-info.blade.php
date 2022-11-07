@@ -4,7 +4,7 @@
         <div class="header_box version_2">
             <h2><i class="fa fa-file"></i>Basic info</h2>
         </div>
-        <div class="row">
+        <div class="row" style="margin-bottom: 14px;">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Name</label>
@@ -19,7 +19,7 @@
             </div>
         </div>
         <!-- /row-->
-        <div class="row">
+        <div class="row" style="margin-bottom: 14px;">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Telephone</label>
@@ -34,21 +34,22 @@
             </div>
         </div>
         <!-- /row-->
-        <div class="row">
+        <div class="row" style="margin-bottom: 14px;">
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Profile picture</label>
                     <br>
-                    <input wire::model="profile_picture" type="file" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
-
-                    <img src="{{ URL::asset('images/doctors/profile/'.$doctor->profile_picture) }}" id="pic" style="width: 200px"/>
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <input wire::model="profile_picture" type="file" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
+                        <img src="{{ URL::asset('images/doctors/profile/'.$doctor->profile_picture) }}" id="pic" style="width: 200px"/> 
+                    </div>
 
                     {{--                        <form action="/file-upload" class="dropzone" ></form>--}}
                 </div>
             </div>
         </div>
         <!-- /row-->
-        <p><button type="submit" class="btn_1 medium">Save</button></p>
+        <button style="width: 100%; border-radius: 8px;" type="submit" class="btn_1 medium">Save</button>
     </form>
 </div>
 <!-- /box_general-->

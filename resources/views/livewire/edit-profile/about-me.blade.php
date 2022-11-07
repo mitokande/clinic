@@ -4,7 +4,7 @@
     <div class="header_box version_2">
         <h2><i class="fa fa-file-text"></i>About Me</h2>
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom: 14px;">
         <div class="col-md-12">
             <div class="form-group">
                 <label>Who am I</label>
@@ -13,7 +13,7 @@
         </div>
     </div>
     <!-- /row-->
-    <div class="row">
+    <div class="row" style="margin-bottom: 14px;">
         <div class="col-md-12">
             <div wire:ignore class="form-group">
                 <label>Specialization <a href="#0" data-toggle="tooltip" data-placement="top" title="Separated by commas"><i class="fa fa-fw fa-question-circle"></i></a></label>
@@ -29,7 +29,7 @@
         </div>
     </div>
     <!-- /row-->
-        <p><button type="submit" class="btn_1 medium">Save</button></p>
+        <button style="width: 100%; border-radius: 8px;" type="submit" class="btn_1 medium">Save</button>
     </form>
     <script src="{{URL::asset('vendor/jquery/jquery.min.js')}}"></script>
     <script>
