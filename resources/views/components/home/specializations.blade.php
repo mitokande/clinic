@@ -1,7 +1,7 @@
 @php
     $categories = \App\Models\MedicineField::latest()->take(8)->get();
 @endphp
-<div class="container margin_120_95">
+<div class="container margin_120_95" style="padding-top: 90px;">
     <div class="main_title">
         <h2>Find by specialization</h2>
         <p>Nec graeci sadipscing disputationi ne, mea ea nonumes percipitur. Nonumy ponderum oporteat cu mel, pro movet cetero at.</p>
