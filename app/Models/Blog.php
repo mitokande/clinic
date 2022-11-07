@@ -27,4 +27,11 @@ class Blog extends Model implements Viewable
     public function setSlugName($slug){
 
     }
+    public function Categories(){
+        $categoriesOfPost = [];
+        foreach (json_decode($this->category) as $categoryName){
+            $categoriesOfPost[] = MedicineField::query()->where('name','=',$categoryName)->firstOrFail();
+        }
+        return $categoriesOfPost;
+    }
 }
