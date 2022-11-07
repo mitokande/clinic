@@ -83,7 +83,7 @@
             @foreach($ratings as $rating)
 
                 <div class="review-box clearfix">
-                    <figure class="rev-thumb"><img src="http://via.placeholder.com/150x150.jpg" alt="">
+                    <figure class="rev-thumb"><img style="width: 100%" src="{{URL::asset('images/patients/profile/'.$rating->user->profile_picture)}}" alt="">
                     </figure>
                     <div class="rev-content">
 
@@ -107,16 +107,25 @@
                             </p>
 
                         </div>
-                        <div class="rev-info" style="margin-left: 10%">
-                            {{\App\Models\Doctor::find($rating->rateable_id)->getFullName()}} – {{$rating->rating . " Yıldız "}}
-                        </div>
-                        <div class="rev-text" style="margin-left: 10%" >
-                            <p>
-                                {{$rating->answer }}
-                            </p>
 
-                        </div>
                     </div>
+                    @if($rating->answer != null)
+                        <div class="rev-content" style="margin-left: 10%">
+                            <figure style="padding: 18px !important;" class="rev-thumb"><img style="width: 100%" src="{{URL::asset('images/doctors/profile/'.$rating->answerer->profile_picture)}}" alt="">
+                            </figure>
+                            <div class="rev-info" style="margin-left: 10%">
+                                {{\App\Models\Doctor::find($rating->rateable_id)->getFullName()}} – {{$rating->rating . " Yıldız "}}
+                            </div>
+                            <div class="rev-text" style="margin-left: 10%" >
+                                <p>
+                                    {{$rating->answer }}
+                                </p>
+
+                            </div>
+                        </div>
+                    @endif
+
+
                 </div>
 
 

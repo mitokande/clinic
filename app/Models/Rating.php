@@ -18,4 +18,8 @@ class Rating extends Model
     {
         return $this->belongsTo(Patient::class);
     }
+    public function answerer()
+    {
+        return $this->belongsTo(Doctor::class,'rateable_id');
+    }
 }
