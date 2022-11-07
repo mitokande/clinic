@@ -261,6 +261,9 @@
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="d-flex align-center justify-between g-5 p-5 bg-white border-b border-gray-200">
                             <div>
+                                <img style="width: max-content;height: 64px;" src="{{ URL::asset('images/blogs/thumbnails/'.$blog->thumbnail_url) }}" alt="">
+                            </div>
+                            <div>
                                 <a target="_blank" href="/{{$blog->slugName()}}">{{$blog->title}}</a>
                             </div>
                             <div class="d-flex g-5">

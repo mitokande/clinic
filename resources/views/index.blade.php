@@ -21,7 +21,7 @@
 
     <x-home.hero></x-home.hero>
 
-    <x-home.specializations></x-home.specializations>
+    <x-home.specializations ></x-home.specializations >
 
     <x-home.appointment></x-home.appointment>
 

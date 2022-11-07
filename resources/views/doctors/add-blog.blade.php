@@ -260,13 +260,13 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="d-flex flex-column g-5 p-6 bg-white border-b border-gray-200">
                         <label for="bTitle"><h2>Blog Başlığı</h2></label>
-                        <input class="custom-input" id="bTitle" name="bTitle" type="text">
+                        <input required class="custom-input" id="bTitle" name="bTitle" type="text">
                     </div>
                 </div>
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="d-flex flex-column g-5 p-6 bg-white border-b border-gray-200">
                         <label for="bCategories"><h2>Blog Kategorisi</h2></label>
-                        <select class="custom-input js-example-basic-multiple" id="bCategories" name="bCategories[]" multiple="multiple">
+                        <select  class="custom-input js-example-basic-multiple" id="bCategories" name="bCategories[]" multiple="multiple">
                             @foreach($fields as $field)
                                 <option value="{{$field->name}}">{{$field->name}}</option>
                             @endforeach
@@ -276,13 +276,13 @@
                 <div class="d-flex flex-column g-5 p-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <label for=""><h2>Blog Büyük Resmi</h2></label>
                     <div>
-                        <input name="bImg" type="file" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
+                        <input required name="bImg" type="file" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
                         <img id="pic" />
                     </div>
                 </div>
                 <div class="d-flex flex-column g-5 p-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <label for="editor"><h2>Blog Metni</h2></label>
-                    <textarea name="bContent" id="editor"></textarea>
+                    <textarea required name="bContent" id="editor"></textarea>
                 </div>
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
