@@ -15,8 +15,8 @@ class Blog extends Model implements Viewable
     public function slugName(){
         $slug = str_replace(" ","-",$this->title);
         $slug = mb_strtolower($slug,'UTF-8');
-        $slug = strtr($slug, ['ü'=>'u','ö'=>'o','ı'=>'i','ş'=>'s','ğ'=>'g']);
-        $slug = preg_replace("/[^A-Za-z0-9 ]/", '', $slug);
+        $slug = strtr($slug, ['ü'=>'u','ö'=>'o','ı'=>'i','ş'=>'s','ğ'=>'g','?'=>'','.'=>'',':'=>'',';'=>'']);
+        //$slug = preg_replace("/[^A-Za-z0-9 ]/", '', $slug);
 
         return $slug;
     }
