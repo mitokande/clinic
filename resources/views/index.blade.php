@@ -23,6 +23,8 @@
 
     <x-home.specializations ></x-home.specializations >
 
+    @livewire('doctor-slider')
+
     <x-home.appointment></x-home.appointment>
 
     <x-home.appsection></x-home.appsection>
