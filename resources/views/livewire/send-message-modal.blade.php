@@ -11,9 +11,14 @@
             </div>
 
         </section><!-- /.message -->
-        <div class="buttons">
-            <a style="cursor:pointer;" wire:click="$emit('closeModal')" class="cancel" target="_blank">Cancel</a>
-            <a style="cursor:pointer;" wire:click="SendMessage()" class="reply" target="_blank">Reply</a>
+        <div class="buttons" style="display: grid; grid-template-columns: 1fr 1fr;">
+            <a style="width: 100%; cursor:pointer;" wire:click="$emit('closeModal')" class="cancel" target="_blank">Cancel</a>
+            <a style="width: 100%; cursor:pointer;" wire:click="SendMessage()" class="reply" target="_blank">Reply</a>
         </div><!-- /.buttons -->
     </section><!-- /.modal-message -->
 </div><!-- /.centering-block -->
+<style>
+    .modal-message{
+        box-shadow: 0 5px 50px 5px #cead8963 !important;
+    }
+</style>

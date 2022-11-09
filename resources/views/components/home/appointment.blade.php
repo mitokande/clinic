@@ -1,4 +1,4 @@
-<div class="container margin_120_95">
+<div class="container margin_120_95" style="padding-top: 90px;">
     <div class="main_title">
         <h2>Discover the <strong>online</strong> appointment!</h2>
         <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie. Sed ad debet scaevola, ne mel.</p>

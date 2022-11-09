@@ -5,7 +5,7 @@
     <div class="header_box version_2">
         <h2><i class="fa fa-file-text"></i>Education</h2>
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom: 14px;">
         <div class="col-md-12">
             <div wire:ignore class="form-group">
                 <label>Add School/University</label>
@@ -22,7 +22,7 @@
     <!-- /row-->
 
     <!-- /row-->
-        <p><button type="submit" class="btn_1 medium">Save</button></p>
+    <button style="width: 100%; border-radius: 8px;" type="submit" class="btn_1 medium">Save</button>
     </form>
     <script src="{{URL::asset('vendor/jquery/jquery.min.js')}}"></script>
 
