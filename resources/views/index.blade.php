@@ -23,7 +23,7 @@
 
     <x-home.specializations ></x-home.specializations >
 
-    @livewire('doctor-slider')
+    @livewire('doctor-slider',['doctors'=>$doctors])
 
     <x-home.appointment></x-home.appointment>
 

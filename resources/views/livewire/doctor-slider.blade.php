@@ -14,10 +14,13 @@
       }
 
       .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        gap: 32px 0;
         text-align: center;
         font-size: 18px;
         background: #fff;
-        padding: 133px 0;
+        /*padding: 133px 0;*/
 
         /* Center slide text vertically */
         display: -webkit-box;
@@ -43,15 +46,14 @@
     </style>
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            <div class="swiper-slide">Slide 5</div>
-            <div class="swiper-slide">Slide 6</div>
-            <div class="swiper-slide">Slide 7</div>
-            <div class="swiper-slide">Slide 8</div>
-            <div class="swiper-slide">Slide 9</div>
+          @foreach ($doctors as $doctor)
+          <div class="swiper-slide">
+            <div>
+              <img src="{{URL::asset('images/doctors/profile/'.$doctor->profile_picture)}}">
+            </div>
+            <span>{{$doctor->getFullName()}}</span>
+          </div>
+          @endforeach
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
