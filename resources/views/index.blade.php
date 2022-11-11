@@ -21,9 +21,11 @@
 
     <x-home.hero></x-home.hero>
 
+    @livewire('doctor-slider',['doctors'=>$doctors])
+
     <x-home.specializations ></x-home.specializations >
 
-    @livewire('doctor-slider',['doctors'=>$doctors])
+    @livewire('about-us')
 
     <x-home.appointment></x-home.appointment>
 
