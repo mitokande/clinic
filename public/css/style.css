@@ -1335,7 +1335,23 @@ ul#additional_links li:after {
 .owl-theme .owl-dots .owl-dot:hover span {
   background: #e74e84 !important;
 }
+.owl-theme .owl-nav{
+  position: absolute;
+  top: 30.5%;
+  width: 100%;
+  display: flex !important;
+  justify-content: space-between;
+}
+.owl-carousel .owl-nav button.owl-next{
+  margin-right: -25px !important;
+}
+.owl-carousel .owl-nav button.owl-prev{
+  margin-left: -25px !important;
+}
 
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot{
+  font-size: 4rem !important;
+}
 a.box_cat_home {
   background-color: #fff;
   display: block;
@@ -5251,4 +5267,36 @@ ul#cat_nav li:last-child a:hover, ul#cat_nav li:last-child a#active, ul#cat_nav 
 }
 .modal-message .buttons .cancel {
     border-right: 2px solid #fefcfa;
+}
+.button-13 {
+  background-color: #1662c5 ;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: whitesmoke;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100px;
+}
+
+
+#top_access{
+  display: flex;
+}
+.button-13:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
 }

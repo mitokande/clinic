@@ -29,7 +29,7 @@
 
     <x-home.appointment></x-home.appointment>
 
-    <x-home.appsection></x-home.appsection>
+    <x-home.areyouquestion></x-home.areyouquestion>
 
 </main>
 
@@ -42,41 +42,7 @@
 <script src="{{URL::asset('js/functions.js')}}"></script>
 <!-- Modernizr -->
 <script src="{{URL::asset('js/modernizr.js')}}"></script>
-<style>
 
-    .button-13 {
-        background-color: #1662c5 ;
-        border: 1px solid #d5d9d9;
-        border-radius: 8px;
-        box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
-        box-sizing: border-box;
-        color: whitesmoke;
-        cursor: pointer;
-        display: inline-block;
-        font-family: "Amazon Ember",sans-serif;
-        font-size: 13px;
-        line-height: 29px;
-        padding: 0 10px 0 11px;
-        position: relative;
-        text-align: center;
-        text-decoration: none;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        vertical-align: middle;
-        width: 100px;
-    }
-
-
-    #top_access{
-        display: flex;
-    }
-    .button-13:focus {
-        border-color: #008296;
-        box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
-        outline: 0;
-    }
-</style>
 <!-- SPECIFIC SCRIPTS -->
 <script src="{{URL::asset('js/video_header.js')}}"></script>
     <!-- SPECIFIC SCRIPTS -->
