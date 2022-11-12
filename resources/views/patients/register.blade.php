@@ -41,108 +41,40 @@
     <div data-loader="circle-side"></div>
 </div>
 <!-- End Preload -->
+@php
+    $fields = \App\Models\MedicineField::all();
+    $titles = \App\Models\DoctorTitle::all();
+@endphp
+<x-home.header></x-home.header>
 
-<header class="header_sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-6">
-                <div id="logo">
-                    <a href="index.html" title="Findoctor"><img src="{{ URL::asset('img/logo.png') }}" alt="" width="163" height="36"></a>
-                </div>
-            </div>
-            <nav class="col-lg-9 col-6">
-                <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
-                <ul id="top_access">
-                    <li id="user">
-                        <a href="#0">
-                            <figure><img src="http://via.placeholder.com/150x150.jpg" alt=""></figure>
-                            Jhon Smith
-                        </a>
-                    </li>
-                </ul>
-                <div class="main-menu">
-                    <ul>
-                        <li class="submenu">
-                            <a href="#0" class="show-submenu">Home<i class="icon-down-open-mini"></i></a>
-                            <ul>
-                                <li><a href="index.html">Home Default</a></li>
-                                <li><a href="index-2.html">Home Version 2</a></li>
-                                <li><a href="index-3.html">Home Version 3</a></li>
-                                <li><a href="index-4.html">Home Version 4</a></li>
-                                <li><a href="index-7.html">Home with Map</a></li>
-                                <li><a href="index-6.html">Revolution Slider</a></li>
-                                <li><a href="index-5.html">With Cookie Bar (EU law)</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#0" class="show-submenu">Pages<i class="icon-down-open-mini"></i></a>
-                            <ul>
-                                <li class="third-level"><a href="#0">List pages</a>
-                                    <ul>
-                                        <li><a href="list.html">List page</a></li>
-                                        <li><a href="grid-list.html">List grid page</a></li>
-                                        <li><a href="list-map.html">List map page</a></li>
-                                    </ul>
-                                </li>
-                                <li class="third-level"><a href="#0">Detail pages</a>
-                                    <ul>
-                                        <li><a href="detail-page.html">Detail page 1</a></li>
-                                        <li><a href="detail-page-2.html">Detail page 2</a></li>
-                                        <li><a href="detail-page-3.html">Detail page 3</a></li>
-                                        <li><a href="detail-page-working-booking.html">Detail working booking</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="submit-review.html">Submit Review</a></li>
-                                <li><a href="blog-1.html">Blog</a></li>
-                                <li><a href="badges.html">Badges</a></li>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="login-2.html">Login 2</a></li>
-                                <li><a href="register-doctor.html">Register Doctor</a></li>
-                                <li><a href="register-doctor-working.html">Working doctor register</a></li>
-                                <li><a href="register.html">Register</a></li>
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#0" class="show-submenu">Extra Elements<i class="icon-down-open-mini"></i></a>
-                            <ul>
-                                <li><a href="booking-page.html">Booking page</a></li>
-                                <li><a href="confirm.html">Confirm page</a></li>
-                                <li><a href="faq.html">Faq page</a></li>
-                                <li><a href="coming_soon/index.html">Coming soon</a></li>
-                                <li class="third-level"><a href="#0">Pricing tables</a>
-                                    <ul>
-                                        <li><a href="pricing-tables-3.html">Pricing tables 1</a></li>
-                                        <li><a href="pricing-tables.html">Pricing tables 2</a></li>
-                                        <li><a href="pricing-tables-2.html">Pricing tables 3</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="icon-pack-1.html">Icon pack 1</a></li>
-                                <li><a href="icon-pack-2.html">Icon pack 2</a></li>
-                                <li><a href="icon-pack-3.html">Icon pack 3</a></li>
-                                <li><a href="404.html">404 page</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#0">Buy this template</a></li>
-                    </ul>
-                </div>
-                <!-- /main-menu -->
-            </nav>
-        </div>
-    </div>
-    <!-- container -->
-</header>
 <!-- /Header -->
 
 <main>
-    <div class="bg_color_2">
-        <div class="container margin_60_35">
-            <div id="register">
-                <h1>Please register to Findoctor!</h1>
-                <div class="row justify-content-center">
-                    <div class="col-md-5">
-                        <form method="post" action="{{ route('patient.register') }}" enctype="multipart/form-data">
+    <div id="hero_register">
+        <div class="container margin_120_95">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>It's time to find you!</h1>
+                    <p class="lead">Te pri adhuc simul. No eros errem mea. Diam mandamus has ad. Invenire senserit ad has, has ei quis iudico, ad mei nonumes periculis.</p>
+                    <div class="box_feat_2">
+                        <i class="pe-7s-map-2"></i>
+                        <h3>Let patients to Find you!</h3>
+                        <p>Ut nam graece accumsan cotidieque. Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet.</p>
+                    </div>
+                    <div class="box_feat_2">
+                        <i class="pe-7s-date"></i>
+                        <h3>Easly manage Bookings</h3>
+                        <p>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</p>
+                    </div>
+                    <div class="box_feat_2">
+                        <i class="pe-7s-phone"></i>
+                        <h3>Instantly via Mobile</h3>
+                        <p>Eos eu epicuri eleifend suavitate, te primis placerat suavitate his. Nam ut dico intellegat reprehendunt, everti audiam diceret in pri, id has clita consequat suscipiantur.</p>
+                    </div>
+                </div>
+                <!-- /col -->
+                <div class="col-lg-5 ml-auto">
+                <form method="post" action="{{ route('patient.register') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="box_form">
                                 <div class="form-group row">
@@ -190,14 +122,79 @@
                             </div>
                             <p class="text-center"><small>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</small></p>
                         </form>
-                    </div>
-                </div>
-                <!-- /row -->
-            </div>
-            <!-- /register -->
+                            @csrf
+                            <div class="box_form">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" name="first_name" placeholder="Your first name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" name="last_name" placeholder="Your last name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Your Field</label>
+                                    <select class="form-select" name="doctor_title_id">
+                                        @foreach($titles as $title)
+                                            <option value="{{$title->id}}">{{$title->title_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" name="email" placeholder="Your email address">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" id="password1" name="password" placeholder="Your password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirm password</label>
+                                    <input type="password" class="form-control" id="password2" name="password_confirmation" placeholder="Confirm password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Telephone</label>
+                                    <input type="number" class="form-control"  name="telephone" placeholder="Telephone Number">
+                                </div>
 
+                                <div class="form-group">
+                                    <label>Your Field</label>
+                                    <select class="form-select" name="medicine_field_id">
+                                        @foreach($fields as $field)
+                                            <option value="{{$field->id}}">{{$field->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Profile Picture</label>
+                                    <input type="file" class="form-control"  name="profile_picture" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
+                                    <img style="width: 100%;" id="pic" />
+
+                                </div>
+                                <div id="pass-info" class="clearfix"></div>
+                                <div class="checkbox-holder text-left">
+                                    <div class="checkbox_2">
+                                        <input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
+                                        <label for="check_2"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center add_top_30">
+                                    <input class="btn_1" type="submit" value="Submit">
+                                </div>
+                            </div>
+                            <p class="text-center"><small>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</small></p>
+                        </form>
+                    <!-- /box_form -->
+                </div>
+                <!-- /col -->
+            </div>
+            <!-- /row -->
         </div>
+        <!-- /container -->
     </div>
+    <!-- /hero_register -->
 </main>
 <!-- /main -->
 

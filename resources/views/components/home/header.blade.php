@@ -42,10 +42,10 @@
                         @else
                             </ul> </div>
                             <ul id="top_access">
-                                <li><a href="doctor/login"><!-- HTML !-->
+                                <li><a href="/doctor/login"><!-- HTML !-->
                                         <button class="button-13" role="button">Doctor</button>
                                     </a></li>
-                                <li><a href="patient/login"><!-- HTML !-->
+                                <li><a href="/patient/login"><!-- HTML !-->
                                         <button class="button-13" style="background-color: #bc0536;" role="button">Patient</button>
                                     </a></li>
                             </ul>
