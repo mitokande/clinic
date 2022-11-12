@@ -208,7 +208,7 @@
                         ?>
                             <li>
                                 <span>2 hours ago</span>
-                                <figure><img src="img/avatar1.jpg" alt=""></figure>
+                                <figure><img src="{{URL::asset('images/patients/profile/'.$messengee[0]->profile_picture)}}" alt=""></figure>
                                 <h4><a href="/doctor/dashboard/message/{{$inbox->id}}"><div class="name">{{$messengee[0]->first_name . " " . $messengee[0]->last_name}}</div></a><i class="unread">Unread</i></h4>
                                 <p>{{$lastMessage->message . ' - '. $lastMessage->created_at}}</p>
                             </li>
