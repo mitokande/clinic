@@ -194,44 +194,42 @@
 <div class="content-wrapper">
 
     <div class="container-fluid">
-
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="#">Dashboard</a>
-            </li>
-            <li class="breadcrumb-item active">Messages</li>
-        </ol>
-        <div class="chat">
-            <div class="people-list" id="people-list">
-                <div class="search">
-                    <input type="text" placeholder="search" />
-                    <i class="fa fa-search"></i>
-                </div>
-                <ul class="list">
-
+    <div class="box_general" style="padding: 15px;">
+			<h4 style="margin: 0;">Inbox</h4>
+			<div class="list_general">
+				<ul>
                     @foreach($inboxes as $inbox)
                         <?php
+                            $lastMessage = \App\Models\Message::query()->where('inbox_id','=',$inbox->id)->latest()->firstOrFail();
                             $partipicents = $inbox->GetInboxPartipicients();
                             if(in_array($patient,$partipicents)){
                                 unset($partipicents[array_search($patient,$inbox->GetInboxPartipicients())]);
                                 $messengee = array_values($partipicents);
-
-                            ?>
-
-                        <li class="clearfix">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt="avatar" />
-                            <div class="about">
-                                <a href="/patient/dashboard/message/{{$inbox->id}}"><div class="name">{{$messengee[0]->first_name . " " . $messengee[0]->last_name}}</div></a>
-                                <div class="status">
-                                    <i class="fa fa-circle online"></i> online
-                                </div>
-                            </div>
-                        </li>
+                        ?>
+                            <li>
+                                <span>2 hours ago</span>
+                                <figure><img src="img/avatar1.jpg" alt=""></figure>
+                                <h4><a href="/patient/dashboard/message/{{$inbox->id}}"><div class="name">{{$messengee[0]->first_name . " " . $messengee[0]->last_name}}</div></a><i class="unread">Unread</i></h4>
+                                <p>{{$lastMessage->message . ' - '. $lastMessage->created_at}}</p>
+                            </li>
                         <?php } ?>
                     @endforeach
-                </ul></div>
-        </div>
+                    <!-- <li>
+						<span>2 hours ago</span>
+						<figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt=""></figure>
+						<h4>Enzo Ferrari <i class="unread">Unread</i></h4>
+						<p>In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+					</li>
+                    <li>
+						<span>2 hours ago</span>
+						<figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt=""></figure>
+						<h4>Enzo Ferrari <i class="unread">Unread</i></h4>
+						<p>In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+					</li> -->
+                </ul>
+			</div>
+		</div>
+        
     </div>
     <!-- /.container-fluid-->
 </div>

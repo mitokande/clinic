@@ -200,6 +200,7 @@
 				<ul>
                     @foreach($inboxes as $inbox)
                         <?php
+                            $lastMessage = \App\Models\Message::query()->where('inbox_id','=',$inbox->id)->latest()->firstOrFail();
                             $partipicents = $inbox->GetInboxPartipicients();
                             if(in_array($doctor,$partipicents)){
                                 unset($partipicents[array_search($doctor,$inbox->GetInboxPartipicients())]);
@@ -209,11 +210,11 @@
                                 <span>2 hours ago</span>
                                 <figure><img src="img/avatar1.jpg" alt=""></figure>
                                 <h4><a href="/doctor/dashboard/message/{{$inbox->id}}"><div class="name">{{$messengee[0]->first_name . " " . $messengee[0]->last_name}}</div></a><i class="unread">Unread</i></h4>
-                                <p>In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+                                <p>{{$lastMessage->message . ' - '. $lastMessage->created_at}}</p>
                             </li>
                         <?php } ?>
                     @endforeach
-                    <li>
+                    <!-- <li>
 						<span>2 hours ago</span>
 						<figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt=""></figure>
 						<h4>Enzo Ferrari <i class="unread">Unread</i></h4>
@@ -224,7 +225,7 @@
 						<figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt=""></figure>
 						<h4>Enzo Ferrari <i class="unread">Unread</i></h4>
 						<p>In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-					</li>
+					</li> -->
                 </ul>
 			</div>
 		</div>
