@@ -4,11 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class DoctorSlider extends Component
+class AboutUs extends Component
 {
-    public $doctors;
     public function render()
     {
-        return view('livewire.doctor-slider');
+        return view('livewire.about-us');
     }
 }

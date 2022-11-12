@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Doctor;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-
-    return view('index');
+    $doctors = Doctor::latest()->take(8)->get();
+    return view('index',[
+        'doctors' => $doctors
+    ]);
 });
 Route::get('/doctors',[\App\Http\Controllers\Doctor\DoctorController::class,'list']);
 Route::get('/denememe',function (){

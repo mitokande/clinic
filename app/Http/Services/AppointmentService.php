@@ -21,7 +21,7 @@ class AppointmentService{
         $username = Auth::guard('patients')->user()->getFullName();
         $zoom = Zoom::user()->first();
         $meeting = Zoom::meeting()->make([
-            'topic' => $username. ' ve '.$doc->title.' ' .$doc->first_name.' '.$doc->last_name.' ile '.$doc->specialization.' Görüşmesi',
+            'topic' => $username. ' ve '.$doc->title()->title_name.' ' .$doc->first_name.' '.$doc->last_name.' ile '.$doc->specialization.' Görüşmesi',
             'duration' => '30',
             'start_time' => new Carbon($request->year.' '.$request->time)
 
