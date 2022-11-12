@@ -11,6 +11,7 @@
             <div class="views"><i class="icon-eye-7"></i>140</div>
             <div class="title">
               <h4>{{$doctor->getFullName()}}</h4>
+              <p>{{$doctor->field()->name}}</p>
             </div><img src="{{URL::asset('images/doctors/profile/'.$doctor->profile_picture)}}" style="width: 350px; height: 500px; object-fit: contain; padding-right: 37px;">
           </a>
         </div>
