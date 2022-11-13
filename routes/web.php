@@ -97,7 +97,15 @@ Route::post('/register/doctor',[\App\Http\Controllers\Doctor\AuthController::cla
 Route::get('/register/patient',[\App\Http\Controllers\Patient\AuthController::class,'register']);
 Route::post('/register/patient',[\App\Http\Controllers\Patient\AuthController::class,'store'])->name('patient-register');
 
+Route::get('/about', function(){
+    return view('about');
+});
+Route::get('/contact', function(){
+    return view('contact');
+});
+Route::get('/404', function(){
+    return view('404');
+});
+require __DIR__.'/auth.php';
 
 Route::get('/{blogname}',[\App\Http\Controllers\BlogController::class,'index']);
-
-require __DIR__.'/auth.php';
