@@ -14,7 +14,9 @@ class DashboardController extends Controller
 {
     //
     public function index(){
-        return view('doctors.dashboard');
+        return view('doctors.dashboard',[
+            'doctor'=> Auth::guard('doctors')->user(),
+        ]);
     }
     public function profile_edit(){
 
@@ -71,11 +73,12 @@ class DashboardController extends Controller
     public function Reviews(){
         $reviews = Rating::query()->where('rateable_id' ,'=', Auth::guard('doctors')->user()->id)->get();
         return view('doctors.reviews',[
-            'reviews' => $reviews
+            'reviews' => $reviews,
+            'doctor'=> Auth::guard('doctors')->user(),
         ]);
     }
     public function blogs(){
-        return view('doctors.blog',[
+        return view('doctors.blogs',[
             'doctor'=>Auth::guard('doctors')->user()
         ]);
     }

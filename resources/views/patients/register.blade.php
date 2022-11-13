@@ -121,71 +121,7 @@
                                 </div>
                             </div>
                             <p class="text-center"><small>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</small></p>
-                        </form>
-                            @csrf
-                            <div class="box_form">
-                                <div class="form-group row">
-                                    <div class="col-md-6">
-                                        <label>First Name</label>
-                                        <input type="text" class="form-control" name="first_name" placeholder="Your first name">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Last Name</label>
-                                        <input type="text" class="form-control" name="last_name" placeholder="Your last name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Your Field</label>
-                                    <select class="form-select" name="doctor_title_id">
-                                        @foreach($titles as $title)
-                                            <option value="{{$title->id}}">{{$title->title_name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" name="email" placeholder="Your email address">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" id="password1" name="password" placeholder="Your password">
-                                </div>
-                                <div class="form-group">
-                                    <label>Confirm password</label>
-                                    <input type="password" class="form-control" id="password2" name="password_confirmation" placeholder="Confirm password">
-                                </div>
-                                <div class="form-group">
-                                    <label>Telephone</label>
-                                    <input type="number" class="form-control"  name="telephone" placeholder="Telephone Number">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Your Field</label>
-                                    <select class="form-select" name="medicine_field_id">
-                                        @foreach($fields as $field)
-                                            <option value="{{$field->id}}">{{$field->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Profile Picture</label>
-                                    <input type="file" class="form-control"  name="profile_picture" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
-                                    <img style="width: 100%;" id="pic" />
-
-                                </div>
-                                <div id="pass-info" class="clearfix"></div>
-                                <div class="checkbox-holder text-left">
-                                    <div class="checkbox_2">
-                                        <input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
-                                        <label for="check_2"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
-                                    </div>
-                                </div>
-                                <div class="form-group text-center add_top_30">
-                                    <input class="btn_1" type="submit" value="Submit">
-                                </div>
-                            </div>
-                            <p class="text-center"><small>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</small></p>
-                        </form>
+                        
                     <!-- /box_form -->
                 </div>
                 <!-- /col -->

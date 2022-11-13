@@ -104,6 +104,15 @@
                     <span class="nav-link-text">Bookings <span class="badge badge-pill badge-primary">6 New</span></span>
                 </a>
             </li>
+            <?php 
+            if($doctor->is_admin){ ?>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookings">
+                    <a class="nav-link" href="/doctor/dashboard/blogs">
+                        <i class="fa fa-fw fa-pencil"></i>
+                        <span class="nav-link-text">Blogs <span class="badge badge-pill badge-primary">6 New</span></span>
+                    </a>
+                </li>
+            <?php } ?>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
                 <a class="nav-link" href="/doctor/dashboard/reviews">
                     <i class="fa fa-fw fa-star"></i>
@@ -116,20 +125,7 @@
                     <span class="nav-link-text">My profile</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-gear"></i>
-                    <span class="nav-link-text">Components</span>
-                </a>
-                <ul class="sidenav-second-level collapse" id="collapseComponents">
-                    <li>
-                        <a href="charts.html">Charts</a>
-                    </li>
-                    <li>
-                        <a href="tables.html">Tables</a>
-                    </li>
-                </ul>
-            </li>
+            
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">

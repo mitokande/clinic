@@ -49,7 +49,8 @@ class BlogController extends Controller
         $blog = Blog::query()->where('slug','=',$blogname)->firstOrFail();
 
         return view('single-blog',[
-            'blog'=>$blog
+            'blog'=>$blog,
+            'doctor'=> Auth::guard('doctors')->user(),
         ]);
     }
     /**
@@ -73,7 +74,10 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
 
-        return view('doctors.edit-blog', ['blog'=>$blog]);
+        return view('doctors.edit-blog', [
+            'blog'=>$blog,
+            'doctor'=> Auth::guard('doctors')->user(),
+        ]);
     }
     /**
      * Update the specified resource in storage.
@@ -120,7 +124,10 @@ class BlogController extends Controller
     public function list()
     {
         $blogs = Blog::orderByDesc('id')->get();
-        return view('doctors.blogs', ['blogs'=>$blogs]);
+        return view('doctors.blogs', [
+            'blogs'=>$blogs,
+            'doctor'=> Auth::guard('doctors')->user(),
+        ]);
     }
 
 
