@@ -228,8 +228,18 @@
 
                         </ul>
                         <hr>
+                        <?php 
+                        if(Auth::guard('patients')->check()){?>
+                            
+                        
                         <input type="submit" class="btn_1 full-width" value="Book Now" >
-                    </form>
+                        </form>
+                        <?php }else{
+                            ?></form>
+                            <button onclick="Livewire.emit('openModal','booking-login-modal',{{ json_encode(["doctorID" => $doctor->id]) }})"  class="btn_1 full-width">Book Now*</button>
+                            <?php
+                        } ?> 
+                    
                 </div>
                 <!-- /box_general -->
             </aside>

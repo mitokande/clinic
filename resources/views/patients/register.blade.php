@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Profile Picture</label>
-                                    <input type="file" class="form-control"  name="profile_picture" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
+                                    <input type="file" required class="form-control"  name="profile_picture" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
                                     <img style="width: 100%;" id="pic" />
 
                                 </div>
