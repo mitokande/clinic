@@ -28,6 +28,8 @@
     @livewire('about-us')
 
     <x-home.appointment></x-home.appointment>
+    
+    @livewire('latest-blogs')
 
     <x-home.areyouquestion></x-home.areyouquestion>
 
