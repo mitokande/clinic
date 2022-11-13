@@ -24,9 +24,9 @@
 <div class="header-video">
     <div id="hero_video">
         <div class="content">
-            <h3>Find a Doctor!</h3>
+            <h3>Doktor, Diş Hekimi ve Psikolog</h3>
             <p>
-                Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
+                Binlerce uzman arasından tercihini yap
             </p>
             @php
                 $fields = \App\Models\MedicineField::all();
@@ -36,7 +36,7 @@
                 <div id="custom-search-input">
                     <div class="input-group g-6">
                         <div style="display: grid; grid-template-columns: 7fr 3fr;" class="g-6">
-                            <input type="text" class=" search-query" name="search" placeholder="Ex. Name, Specialization ....">
+                            <input type="text" class=" search-query" name="search" placeholder="Ör. Doktor adı, Uzmanlık ...">
                             <select class="custom-input js-example-basic-multiple"  name="spec">
                                 <option value="">Select a Field</option>
                                 @foreach($fields as $field)
@@ -44,7 +44,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <input type="submit" class="btn_search pos-initial w-100 b-001010" value="Search">
+                        <input type="submit" class="btn_search pos-initial w-100 b-001010" value="Ara">
                     </div>
                     <ul>
                         <li>

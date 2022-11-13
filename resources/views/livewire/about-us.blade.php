@@ -11,9 +11,17 @@
                 </figure>
             </div>
             <div class="col-lg-5">
-                <p>Lorem ipsum dolor sit amet, homero erroribus in cum. Cu eos <strong>scaevola probatus</strong>. Nam atqui intellegat ei, sed ex graece essent delectus. Autem consul eum ea. Duo cu fabulas nonumes contentiones, nihil voluptaria pro id. Has graeci deterruisset ad, est no primis detracto pertinax, at cum malis vitae facilisis.</p>
-                <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore <strong>percipitur definitiones</strong> ex, nihil utinam recusabo mel no. Dolores reprehendunt no sit, quo cu viris theophrastus. Sit unum efficiendi cu.</p>
-                <p><em>CEO Marc Schumaker</em></p>
+                <p>Doktoradanis.net web sitesi sağlıklı yaşam, hastalıklar, tedavi yöntemleri, hastaneler ve doktorlar hakkında doğru bilgiler almanızı, uzmanlarla iletişim kurmanız kolaylaştırmak için kurulmuş bağımsız bir dijital sağlık platformudur.</p>
+                <p>Web sitemizden, hastalıklar ve tedavi yöntemleri ile ilgili doktorlar ve uzmanlara soru sorup iletişim kurabilir, onlarla doğrudan haberleşebilir faydalı bilgiler edinebilirsiniz.</p>
+                
+                <link rel="stylesheet" href="{{URL::asset('css/sm-icon-pills.css')}}">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                <div class="wrapper">
+                    <a href="#"><div class="bg-ico" id="facebook"><i class="fab fa-facebook social  facebook fa-3x"></i></div></a>
+                    <a href="#"><div class="bg-ico" id="twitter"><i class="fab fa-twitter social  twitter fa-3x"></i></div></a>
+                    <a href="#"><div class="bg-ico" id="instagram"><i class="fab fa-instagram social  instagram fa-3x"></i></div></a>
+                    <a href="#"><div class="bg-ico" id="youtube"><i class="fab fa-youtube social  youtube fa-3x"></i></div></a>
+                </div>
             </div>
         </div>
         <!--/row-->
