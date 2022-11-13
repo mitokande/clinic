@@ -1238,6 +1238,13 @@ ul#additional_links li:after {
   text-align: center;
   width: 100%;
   z-index: 9;
+  background: #3f4079;
+}
+#reccomended .item .title p{
+  margin-bottom: 12.5px;
+}
+.doc-field:hover{
+  color: #e74e84;
 }
 #reccomended .item .title h4, #staff .item .title h4 {
   background-color: #3f4079;
@@ -1341,6 +1348,7 @@ ul#additional_links li:after {
   width: 100%;
   display: flex !important;
   justify-content: space-between;
+  z-index: -1;
 }
 .owl-carousel .owl-nav button.owl-next{
   margin-right: -25px !important;
