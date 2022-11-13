@@ -24,12 +24,12 @@
     @livewire('doctor-slider',['doctors'=>$doctors])
 
     <x-home.specializations ></x-home.specializations >
-
-    @livewire('about-us')
+    
+    @livewire('latest-blogs')
 
     <x-home.appointment></x-home.appointment>
     
-    @livewire('latest-blogs')
+    @livewire('about-us')
 
     <x-home.areyouquestion></x-home.areyouquestion>
 
