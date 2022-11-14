@@ -1,4 +1,4 @@
-<div>
+<div class="bg_color_1">
     <style>
         .blog-sec-container {
            
@@ -55,36 +55,43 @@
             object-fit: cover;
             width: 100%;
         }
+        .mini-blog-wrapper{
+            height: max-content;
+        }
         .mini-blog-div{
-            display: flex;
+            display: grid;
+            grid-template-columns: 4fr 6fr;
+            gap: 20px;
         }
         .mini-blog-div p{
             font-weight: bold;
             font-size: .95rem;
         }
         .mini-blog-div img{
-            width: 120px;
+            width: 100%;
             object-fit: cover;
         }
     </style>
     <div class="blog-sec-container container margin_120_95">
         <div class="last-blog">
             <div>
-                <img src="https://www.doktoradanis.net/wp-content/uploads/2022/03/Agiz-Kurulugu-Xerostomia-6.jpg" alt="">
+                <a href="/{{$blogs[0]->slug}}"><img src="{{URL::asset('images/blogs/thumbnails/'.$blogs[0]->thumbnail_url)}}" alt=""></a>
             </div>
             <div class="latest-bright">
                 <div>
-                    <p class="b-title">Ağız kuruluğu neden olur? Ne iyi gelir? Belirtileri ve çözümü</p>
-                    <p class="b-content">Ağız kuruluğu (kserostomi) ağzınızdaki tükürük bezleri yeterli tükürük üretmediğinde gelişir. Yemek yeme, konuşma ve yutma güçlüğü, ağız kokusu, tat duyusunda değişiklik, susuzluk hissi gibi belirtilerle kendini gösterebilir. Yaşlanma, radyasyon ya da kemoterapi, burun...</p>
+                    <p class="b-title">{{$blogs[0]->title}}</p>
+                    <p class="b-content">{{substr($blogs[0]->title,0,350)}}</p>
                 </div>
-                <button>DEVAMI</button>
+                <a href="/{{$blogs[0]->slug}}"><button>DEVAMI</button></a>
             </div>
         </div>
-        <div class="mini-blog-div second-b">
-            <img src="https://www.doktoradanis.net/wp-content/uploads/2022/10/besin-gida-yemek-43.jpg" alt="">
-            <p>Tansiyon neden yükselir, nasıl düşürülür? İyi gelen yiyecekler</p>
-        </div>
-        <div class="mini-blog-div third-b">
+        @for ($i = 1;$i < 7 ; $i++)
+        <a class="mini-blog-wrapper" href="/{{$blogs[$i]->slug}}"><div class="mini-blog-div {{$i}}-b">
+                <img src="{{URL::asset('images/blogs/thumbnails/'.$blogs[$i]->thumbnail_url)}}" alt="">
+                <p>{{$blogs[$i]->title}}</p>
+            </div></a>
+        @endfor
+        <!-- <div class="mini-blog-div third-b">
             <img src="https://www.doktoradanis.net/wp-content/uploads/2022/10/besin-gida-yemek-43.jpg" alt="">
             <p>Tansiyon neden yükselir, nasıl düşürülür? İyi gelen yiyecekler</p>
         </div>
@@ -103,6 +110,6 @@
         <div class="mini-blog-div seventh-b">
             <img src="https://www.doktoradanis.net/wp-content/uploads/2022/10/besin-gida-yemek-43.jpg" alt="">
             <p>Tansiyon neden yükselir, nasıl düşürülür? İyi gelen yiyecekler</p>
-        </div>
+        </div> -->
     </div>
 </div>

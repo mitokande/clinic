@@ -185,4 +185,17 @@
 		}
 	});
 
+
+	$("#blog").click(function(){
+		$("#blogForm").show();
+		$("#doctorForm").hide();
+	  });
+	  
+	  $("#doctor").click(function(){
+		$("#doctorForm").show();
+		$("#blogForm").hide();
+
+	  });
+
+
 })(window.jQuery);

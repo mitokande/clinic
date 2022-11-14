@@ -6,9 +6,13 @@ use App\Http\Services\EditProfileComponent;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class BasicInfo extends Component
 {
+    
+    use WithFileUploads;
+
     public $doctor;
     public $first_name;
     public $last_name;
@@ -30,10 +34,11 @@ class BasicInfo extends Component
         $this->doctor->last_name = $this->last_name;
         $this->doctor->email = $this->email;
         $this->doctor->telephone = $this->telephone;
-//        $fileName = time().$this->profile_picture->getClientOriginalName();
-//        $this->doctor->profile_picture = $fileName;
-//        $this->doctor->profile_picture = $fileName;
-//        $this->profile_picture->move(public_path("/images/doctors/profile"), $fileName);
+        $fileName = time().$this->profile_picture->getClientOriginalName();
+        $this->doctor->profile_picture = $fileName;
+        $this->doctor->profile_picture = $fileName;
+        $this->profile_picture->move(public_path() . '/images/doctors/profile/', $fileName);
+        //public_path("/images/doctors/profile")
         $this->doctor->save();
     }
 

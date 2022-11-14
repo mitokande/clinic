@@ -48,6 +48,7 @@
 @php
     $fields = \App\Models\MedicineField::all();
     $titles = \App\Models\DoctorTitle::all();
+    
 @endphp
 <main>
     <div id="hero_register">

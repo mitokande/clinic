@@ -4,28 +4,30 @@
             <div class="col-lg-3 col-md-12">
                 <p>
                     <a href="/" title="">
-                        <img src="../img/logo.png" alt="" width="163" height="36" class="img-fluid">
+                        <img src="/logo1.png" alt="Doktora Danış" width="163" height="36" class="img-fluid">
                     </a>
                 </p>
             </div>
             <div class="col-lg-3 col-md-4">
-                <h5>About</h5>
+                <h5>Biz</h5>
                 <ul class="links">
-                    <li><a href="/404">About us</a></li>
-                    <li><a href="/404">Blog</a></li>
+                    <li><a href="/hakkimizda">Hakkımızda</a></li>
+                    <li><a href="/iletisim">İletişim</a></li>
+                    <li><a href="/blogs">Makaleler</a></li>
                     <li><a href="/404">FAQ</a></li>
-                    <li><a href="/patient/register">Login</a></li>
-                    <li><a href="/patient/register">Register</a></li>
+
                 </ul>
             </div>
             <div class="col-lg-3 col-md-4">
-                <h5>Useful links</h5>
+                <h5>Hastaysanız</h5>
                 <ul class="links">
-                    <li><a href="/doctors">Doctors</a></li>
-                    <li><a href="/404">Clinics</a></li>
-                    <li><a href="/404">Specialization</a></li>
-                    <li><a href="/doctor/register">Join as a Doctor</a></li>
-                    <li><a href="/404">Download App</a></li>
+                    <li><a href="/patient/register">Giriş Yap</a></li>
+                    <li><a href="/patient/register">Kayıt Ol</a></li>
+                </ul>
+                <h5>Doktorsanız</h5>
+                <ul class="links">
+                    <li><a href="/doctor/register">Giriş Yap</a></li>
+                    <li><a href="/doctor/register">Kayıt Ol</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-4">
@@ -50,8 +52,8 @@
         <div class="row">
             <div class="col-md-8">
                 <ul id="additional_links">
-                    <li><a href="/404">Terms and conditions</a></li>
-                    <li><a href="/404">Privacy</a></li>
+                    <li><a href="/404">Şartlar ve koşullar</a></li>
+                    <li><a href="/404">Gizlilik</a></li>
                 </ul>
             </div>
             <div class="col-md-4">

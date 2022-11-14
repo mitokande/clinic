@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\UserReviews;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class UserReviewsFactory extends Factory
 {
+    protected $model = UserReviews::class;
+
+
     /**
      * Define the model's default state.
      *
@@ -17,7 +21,11 @@ class UserReviewsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->name(),
+            'content' => $this->faker->paragraph(),
+            'star' => 5,
+            'picture' => 'doctor_2_carousel.jpg',
+            'user_type' => 'Patient',
         ];
     }
 }

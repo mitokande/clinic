@@ -278,7 +278,7 @@
                 </div>
                 <div class="d-flex flex-column g-5 p-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <label for="editor"><h2>Blog Metni</h2></label>
-                    <textarea required name="bContent" id="editor"></textarea>
+                    <textarea  name="bContent" id="editor"></textarea>
                 </div>
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
@@ -513,7 +513,12 @@
 </script>
 <script>
     $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
+        $('.js-example-basic-multiple').select2({
+            tags: true,
+            placeholder: "Add every education information",
+            allowClear: true,
+            multiple: true,
+        });
     });
 </script>
 </body>

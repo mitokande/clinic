@@ -210,72 +210,33 @@
             </div>
             <!-- /col -->
             <aside class="col-lg-2">
-                <div class="widget">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" name="search" id="search" class="form-control" placeholder="Search...">
-                        </div>
-                        <button type="submit" id="submit" class="btn_1"> Search</button>
-                    </form>
-                </div>
-                <!-- /widget -->
 
                 <div class="widget">
                     <div class="widget-title">
-                        <h4>Recent Posts</h4>
+                        <h4>Son Eklenenler</h4>
                     </div>
                     <ul class="comments-list">
-                        <li>
-                            <div class="alignleft">
-                                <a href="#0"><img src="http://via.placeholder.com/160x160.jpg" alt=""></a>
-                            </div>
-                            <small>11.08.2016</small>
-                            <h3><a href="#" title="">Verear qualisque ex minimum...</a></h3>
-                        </li>
-                        <li>
-                            <div class="alignleft">
-                                <a href="#0"><img src="http://via.placeholder.com/160x160.jpg" alt=""></a>
-                            </div>
-                            <small>11.08.2016</small>
-                            <h3><a href="#" title="">Verear qualisque ex minimum...</a></h3>
-                        </li>
-                        <li>
-                            <div class="alignleft">
-                                <a href="#0"><img src="http://via.placeholder.com/160x160.jpg" alt=""></a>
-                            </div>
-                            <small>11.08.2016</small>
-                            <h3><a href="#" title="">Verear qualisque ex minimum...</a></h3>
-                        </li>
+                        @foreach (\App\Models\Blog::latest()->take(3)->get() as $blog)
+                            <li>
+                                <div class="alignleft">
+                                    <a href="/{{$blog->slug}}"><img src="{{URL::asset('images/blogs/thumbnails/'.$blog->thumbnail_url)}}" alt=""></a>
+                                </div>
+                                <h3 style="margin-bottom: 10px !important;"><a href="/{{$blog->slug}}" title="">{{$blog->title}}</a></h3>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <!-- /widget -->
 
                 <div class="widget">
                     <div class="widget-title">
-                        <h4>Blog Categories</h4>
+                        <h4>Son Eklenen Kategoriler</h4>
                     </div>
                     <ul class="cats">
-                        <li><a href="#">Treatments <span>(12)</span></a></li>
-                        <li><a href="#">News <span>(21)</span></a></li>
-                        <li><a href="#">Events <span>(44)</span></a></li>
-                        <li><a href="#">New treatments <span>(09)</span></a></li>
-                        <li><a href="#">Focus in the lab <span>(31)</span></a></li>
+                        @foreach (\App\Models\MedicineField::latest()->take(10)->get() as $categpry)
+                            <li><a href="#">{{$categpry->name}} <span>(X)</span></a></li>
+                        @endforeach
                     </ul>
-                </div>
-                <!-- /widget -->
-
-                <div class="widget">
-                    <div class="widget-title">
-                        <h4>Popular Tags</h4>
-                    </div>
-                    <div class="tags">
-                        <a href="#">Medicine</a>
-                        <a href="#">Treatments</a>
-                        <a href="#">Events</a>
-                        <a href="#">Specialist</a>
-                        <a href="#">Pills</a>
-                        <a href="#">Cancer</a>
-                    </div>
                 </div>
                 <!-- /widget -->
 

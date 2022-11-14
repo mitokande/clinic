@@ -29,7 +29,7 @@
 
     <x-home.appointment></x-home.appointment>
     
-    @livewire('about-us')
+    {{-- @livewire('about-us') --}}
 
     <x-home.areyouquestion></x-home.areyouquestion>
 

@@ -63,7 +63,7 @@
                                     </figure>
                                 </div>
                                 <div class="col-lg-7 col-md-8">
-                                    <small>{{$doctor->specialization}}</small>
+                                    <small>{{$doctor->field()->name}}</small>
                                     <h1>{{$doctor->first_name.' '.$doctor->last_name}}</h1>
 
                                     @livewire('doctor-stats',['doctor'=>$doctor])
@@ -144,7 +144,7 @@
                             <p>Mussum ipsum cacilds, vidis litro abertis.</p>
                         </div>
                         <div class="wrapper_indent">
-                            <p>Zril causae ancillae sit ea. Dicam veritus mediocritatem sea ex, nec id agam eius. Te pri facete latine salutandi, scripta mediocrem et sed, cum ne mundi vulputate. Ne his sint graeco detraxit, posse exerci volutpat has in.</p>
+                            <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
                             <div class="table-responsive">
                                 <table class="table table-striped">
                                     <thead>
@@ -219,8 +219,8 @@
                                 @foreach(json_decode($doctor->service) as $service=>$price)
                                     <li>
                                         <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit1" value="Back Pain visit" name="subject[]">
-                                            <label for="visit1" class="css-label">{{$service}}<strong>${{$price}}</strong></label>
+                                            <input type="checkbox" class="css-checkbox" id="{{$service}}" value="Back Pain visit" name="subject[]">
+                                            <label for="{{$service}}" class="css-label">{{$service}}<strong>${{$price}}</strong></label>
                                         </div>
                                     </li>
                                 @endforeach

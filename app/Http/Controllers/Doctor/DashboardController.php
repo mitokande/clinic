@@ -30,6 +30,22 @@ class DashboardController extends Controller
         ]);
     }
     public function profile_save(Request $request){
+        $doctor = Auth::guard('doctors')->user();
+
+        if(!empty($request->first_name)){
+            foreach ($request->keys() as $key){
+                if($key != "_token" && $key != "profile_picture"){
+                    $doctor->{$key} = $request->input($key);            }
+                }
+            $fileName = time().$request->file('profile_picture')->getClientOriginalName();
+            $doctor->profile_picture = $fileName;
+            $doctor->profile_picture = $fileName;
+            $request->file('profile_picture')->move(public_path() . '/images/doctors/profile/', $fileName);
+            $doctor->save();
+            return redirect()->route('doctor.profile-edit');
+
+        }
+
         $service = array_combine($request->input('service'),$request->input('service_price'));
         foreach ($service as $serv=>$price){
             if(empty($serv)){
@@ -41,7 +57,6 @@ class DashboardController extends Controller
 
         unset($request['service_price']);
 
-        $doctor = Auth::guard('doctors')->user();
         foreach ($request->keys() as $key){
             if($key != "_token"){
                 $doctor->{$key} = $request->input($key);            }

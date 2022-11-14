@@ -15,5 +15,6 @@ class UserReviewsSeeder extends Seeder
     public function run()
     {
         //
+        \App\Models\UserReviews::factory(6)->create();
     }
 }

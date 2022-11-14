@@ -9,8 +9,8 @@
                 </li>
                 <li class="breadcrumb-item active">Add listing</li>
             </ol>
-
-            @livewire('edit-profile.basic-info',['doctor'=>$doctor])
+            <x-admin.basic-info :doctor="$doctor"></x-admin-basic-info >
+            <!-- -->
 
             @livewire('edit-profile.address',['doctor'=>$doctor])
 

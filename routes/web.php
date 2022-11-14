@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\GeneralController;
 use App\Models\Doctor;
+use App\Models\UserReviews;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,7 +77,7 @@ Route::name('doctor.')->prefix('doctor')->group( function (){
         Route::post('logout', [\App\Http\Controllers\Doctor\AuthController::class, 'destroy'])->name('logout');
         Route::middleware('is_admin')->group(function(){
             Route::get('/dashboard/doctors',[\App\Http\Controllers\Admin\DashboardController::class,'list']);
-            Route::get('/dashboard/edit-profile/add',[\App\Http\Controllers\Admin\DashboardController::class,'add_doctor']);
+            Route::get('/dashboard/doctors/add',[\App\Http\Controllers\Admin\DashboardController::class,'add_doctor']);
             Route::get('/dashboard/edit-profile/{doctorID}',[\App\Http\Controllers\Admin\DashboardController::class,'profile_edit']);
             Route::post('/dashboard/edit-profile/{doctorID}',[\App\Http\Controllers\Admin\DashboardController::class,'profile_update']);
         });
@@ -97,15 +99,18 @@ Route::post('/register/doctor',[\App\Http\Controllers\Doctor\AuthController::cla
 Route::get('/register/patient',[\App\Http\Controllers\Patient\AuthController::class,'register']);
 Route::post('/register/patient',[\App\Http\Controllers\Patient\AuthController::class,'store'])->name('patient-register');
 
-Route::get('/about', function(){
-    return view('about');
+Route::get('/hakkimizda', function(){
+    return view('about',[
+        'reviews' => UserReviews::all()
+    ]);
 });
-Route::get('/contact', function(){
+Route::post('/iletisim',[GeneralController::class,'SendContactMail']);
+Route::get('/iletisim', function(){
     return view('contact');
 });
 Route::get('/404', function(){
     return view('404');
 });
 require __DIR__.'/auth.php';
-
+Route::get('/blogs',[GeneralController::class,'Blogs']);
 Route::get('/{blogname}',[\App\Http\Controllers\BlogController::class,'index']);

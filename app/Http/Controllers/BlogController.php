@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\MedicineField;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +27,9 @@ class BlogController extends Controller
         $blog->banner_url = $fileName;
         $blog->author_id = Auth::guard('doctors')->user()->id;
         $blog->save();
+        foreach($request->bCategories as $cat){
+           MedicineField::firstOrCreate(array('name' => $cat));
+        }
         $request->file('bImg')->move(public_path("/images/blogs/thumbnails"), $fileName);
         return redirect('/doctor/dashboard/blogs');
     }
@@ -61,7 +65,9 @@ class BlogController extends Controller
     public function create()
     {
         //
-        return view('doctors.add-blog');
+        return view('doctors.add-blog',[
+            'doctor'=>Auth::guard('doctors')->user()
+        ]);
     }
 
     /**

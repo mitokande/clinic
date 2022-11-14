@@ -29,8 +29,8 @@
         <div class="bg_color_1">
             <div class="container margin_120_95">
                 <div class="main_title">
-                    <h1>About Findoctor</h1>
-                    <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+                    <h1>Hakkımızda</h1>
+                    <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
                 </div>
                 <div class="row justify-content-between">
                     <div class="col-lg-6">
@@ -39,9 +39,15 @@
                         </figure>
                     </div>
                     <div class="col-lg-5">
-                        <p>Lorem ipsum dolor sit amet, homero erroribus in cum. Cu eos <strong>scaevola probatus</strong>. Nam atqui intellegat ei, sed ex graece essent delectus. Autem consul eum ea. Duo cu fabulas nonumes contentiones, nihil voluptaria pro id. Has graeci deterruisset ad, est no primis detracto pertinax, at cum malis vitae facilisis.</p>
-                        <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore <strong>percipitur definitiones</strong> ex, nihil utinam recusabo mel no. Dolores reprehendunt no sit, quo cu viris theophrastus. Sit unum efficiendi cu.</p>
-                        <p><em>CEO Marc Schumaker</em></p>
+                    <p>Doktoradanis.net web sitesi internet üzerinde hastalık, tedavi yöntemleri, hastane ve
+                    doktorlar hakkında bilgi almanızı, uzmanlarla iletişim kurmanız kolaylaştırmak amacıyla
+                    kurulmuş bağımsız bir dijital sağlık platformudur.</p>
+                    <p>Doktoradanis.net web sitesi, hastalık ve tedavi yöntemleri ile ilgili doktor ve uzmanlara soru
+                    sorup bu kişilerle iletişim kurmanızı, onlarla doğrudan veya dolaylı olarak haberleşmenizi
+                    sağlamak amacıyla kurulmuş bir internet sitesidir.</p>
+                    <p>Doktoradanis.net web sitesi, hastalık ve tedavi yöntemleri ile ilgili doktor ve uzmanlara soru
+                    sorup bu kişilerle iletişim kurmanızı, onlarla doğrudan veya dolaylı olarak haberleşmenizi
+                    sağlamak amacıyla kurulmuş bir internet sitesidir.</p>
                     </div>
                 </div>
                 <!--/row-->
@@ -97,85 +103,26 @@
         <div class="bg_color_1">
             <div class="container margin_120_95">
                 <div class="main_title">
-                    <h2>What user says about us</h2>
-                    <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+                    <h2>KULLANICI HAKKIMIZDA NE DİYOR</h2>
+                    <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
                 </div>
-                <div class="row">
-                <div class="col-md-4">
-                    <div class="about-review">
-                <div class="rating">
-                        <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i> <strong>Excellent!</strong>
-                    </div>
-                    <p>"Vel esse mucius omittantur ei. Nostrum fabellas similique ex qui, dolor semper mentitum ut est, ea nec mutat vocent. Animal commodo in quo, et nec zril dolor homero. Meis graece ad pro, mea simul discere no."</p>
-                    <div class="user_review">
-                        <figure><img src="http://via.placeholder.com/160x160.jpg"></figure>
-                        <h4>Dr. Joseph Luiss<span>Doctor</span></h4>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                <div class="about-review">
-                <div class="rating">
-                        <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i> <strong>Superb!</strong>
-                    </div>
-                    <p>"Ad agam dignissim has, posse melius dissentiet eam eu. Vel accusamus instructior ex, his ne omnes commodo efficiantur. Duo quod inani maluisset te, ea per alia minimum officiis."</p>
-                    <div class="user_review">
-                        <figure><img src="http://via.placeholder.com/160x160.jpg"></figure>
-                        <h4>Pablo Jemenez<span>User</span></h4>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                <div class="about-review">
-                <div class="rating">
-                        <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i> <strong>Very useful!</strong>
-                    </div>
-                    <p>"Duo omnis iudicabit quaerendum ut. Ius quis adipiscing ut. Id mea graeco fabulas. Pri iisque interpretaris at, per diam suscipiantur in, ut ludus labore iriure pro."</p>
-                    <div class="user_review">
-                        <figure><img src="http://via.placeholder.com/160x160.jpg"></figure>
-                        <h4>Marc Twain<span>User</span></h4>
-                    </div>
-                    </div>
-                </div>
-            </div>
+                
             <!-- /row -->
             <div class="row">
+                @foreach ($reviews as $review)
                 <div class="col-md-4">
                     <div class="about-review">
-                <div class="rating">
-                        <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i> <strong>Satisfied!</strong>
-                    </div>
-                    <p>"Elitr doming consetetur ut has, noluisse interesset te vis. Nemore habemus mea at, has no probo mucius omittam. Scripta numquam eruditi ad pri, quo docendi vivendum ea. "</p>
-                    <div class="user_review">
-                        <figure><img src="http://via.placeholder.com/160x160.jpg"></figure>
-                        <h4>Dr. Julia Roberts<span>Doctor</span></h4>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                <div class="about-review">
-                <div class="rating">
-                        <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i> <strong>Love it!</strong>
-                    </div>
-                    <p>"Unum justo sea ne, no facer intellegat vituperatoribus duo, vix an meliore expetendis. Ei pro liber regione consulatu. Est soleat molestie ad. Oblique oportere pertinacia eum ne."</p>
-                    <div class="user_review">
-                        <figure><img src="http://via.placeholder.com/160x160.jpg"></figure>
-                        <h4>Dr.John Doe<span>Doctor</span></h4>
-                    </div>
+                        <div class="rating">
+                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i> <strong>Satisfied!</strong>
+                        </div>
+                        <p>"{{$review->content}}"</p>
+                        <div class="user_review">
+                            <figure><img src="http://via.placeholder.com/160x160.jpg"></figure>
+                            <h4>{{$review->title}}<span>{{$review->user_type}}</span></h4>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                <div class="about-review">
-                <div class="rating">
-                        <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i> <strong>Great Support!</strong>
-                    </div>
-                    <p>"Lorem ipsum dolor sit amet, ne quas inermis nec, graece postea in nec. Eum propriae eligendi intellegam eu. Ius ei tation intellegat."</p>
-                    <div class="user_review">
-                        <figure><img src="http://via.placeholder.com/160x160.jpg"></figure>
-                        <h4>Lucas<span>User</span></h4>
-                    </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <!-- /row -->
             </div>
@@ -185,8 +132,8 @@
                 
         <div class="container margin_120_95">
             <div class="main_title">
-                <h2>Why Choose Findoctor</h2>
-                <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+                <h2>NEDEN DOKTORA DANIŞ' I SEÇMELİSİNİZ</h2>
+                <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6">

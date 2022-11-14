@@ -40,6 +40,8 @@ class AuthController extends Controller
 
     }
     public function register(){
+        
+
         return view('doctors.register');
     }
     /**
@@ -76,9 +78,9 @@ class AuthController extends Controller
         event(new Registered($user));
 
         Auth::guard('doctors')->login($user);
-        Mail::send("misc.email-registration",["name"=>$user->getFullName()],function ($message) use(&$user){
-            $message->to($user->email,$user->getFullName())->subject("Registration Complete");
-        });
+        //Mail::send("misc.email-registration",["name"=>$user->getFullName()],function ($message) use(&$user){
+         //   $message->to($user->email,$user->getFullName())->subject("Registration Complete");
+        //});
         return redirect('/doctor/dashboard');
     }
     /**
