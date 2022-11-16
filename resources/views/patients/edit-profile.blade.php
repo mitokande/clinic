@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Ansonika">
-    <title>FINDOCTOR - Admin dashboard</title>
+    <title>Profili Düzenle</title>
 
     <!-- Bootstrap core CSS-->
     <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -41,7 +41,7 @@
             <li class="breadcrumb-item">
                 <a href="#">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Add listing</li>
+            <li class="breadcrumb-item active">Profili Düzenle</li>
         </ol>
 
 

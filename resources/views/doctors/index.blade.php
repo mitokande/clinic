@@ -236,7 +236,7 @@
                                 @foreach(json_decode($doctor->service) as $service=>$price)
                                     <li>
                                         <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="{{$service}}" value="Back Pain visit" name="subject[]">
+                                            <input type="checkbox" class="css-checkbox" id="{{$service}}" value="{{$service}}" name="subject[]">
                                             <label for="{{$service}}" class="css-label">{{$service}}<strong>${{$price}}</strong></label>
                                         </div>
                                     </li>

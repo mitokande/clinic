@@ -7,10 +7,10 @@
     </div>
     <hr>
     <div class="card-info">
-        <h2><span>Patient Name:</span> {{$appointment->patient->getFullName()}}</h2>
-        <h2><span>Appointment Time:</span> {{$appointment->appointment_time}}</h2>
-        <h2><span>Appointment Subject:</span> {{$appointment->appointment_subject}}</h2>
-        <h2><span>Appointment Price:</span></h2>
+        <h2><span>Hasta Adı:</span> {{$appointment->patient->getFullName()}}</h2>
+        <h2><span>Randevu Zamanı:</span> {{$appointment->appointment_time}}</h2>
+        <h2><span>Randevu Konusu:</span> <?php echo substr($appointment->appointment_subject,2,-2); ?></h2>
+        <h2><span>Randevu Ücreti:</span></h2>
     </div>
 
 

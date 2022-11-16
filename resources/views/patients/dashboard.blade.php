@@ -10,7 +10,7 @@
     <link href="{{URL::asset('css/admin.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/dataTables.bootstrap4.css')}}" rel="stylesheet">
 
-    <title>Document</title>
+    <title>Panel</title>
 </head>
 <body>
 

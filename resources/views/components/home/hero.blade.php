@@ -36,7 +36,7 @@
                 <div id="custom-search-input">
                     <form id="doctorForm" method="get" action="/doctors">
                         <div class="input-group g-6">
-                            <div style="display: grid; grid-template-columns: 7fr 3fr;" class="g-6">
+                            <div class="hero-inputs g-6">
                                 <input type="text" class=" search-query" name="search" placeholder="Ör. Doktor adı, Uzmanlık ...">
                                 <select class="custom-input js-example-basic-multiple"  name="spec">
                                     <option value="">Select a Field</option>

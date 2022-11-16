@@ -5322,3 +5322,32 @@ article.blog .post_info, article.blog figure{
   min-height: 300px !important;
   height: 300px !important;
 }
+
+.hero-inputs{
+  display: grid; 
+  grid-template-columns: 7fr 3fr;
+}
+@media only screen and (max-width: 767px) {
+  .hero-inputs {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5fr 5fr;
+  }
+  .select2-container{
+    width: 100% !important;
+  }
+  .blog-sec-container{
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .last-blog{
+    grid-template-columns: 1fr !important;
+  }
+  .last-blog .b-content, .last-blog button{
+    display: none;
+  }
+}
+
+.mini-blog-div img{
+height: 100px;
+}

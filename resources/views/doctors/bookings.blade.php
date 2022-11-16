@@ -27,13 +27,14 @@
     <!-- Your custom styles -->
     <!-- WYSIWYG Editor -->
     <link rel="stylesheet" href="{{URL::asset('js/editor/summernote-bs4.css')}}">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
-    <a class="navbar-brand" href="/"><img src="{{URL::asset('img/logo.png')}}" data-retina="true" alt="" width="163" height="36"></a>
+    <a class="navbar-brand" href="/"><img src="{{URL::asset('/logo1.png')}}" data-retina="true" alt="" width="122" height="37.5" style="margin-left: 15px;"></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -119,7 +120,7 @@
             <li class="breadcrumb-item">
                 <a href="#">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Messages</li>
+            <li class="breadcrumb-item active">Randevu Takvimi</li>
         </ol>
         <div class="list_general reviews">
             @livewire('livewire-ui-modal')

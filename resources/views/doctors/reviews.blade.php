@@ -43,7 +43,7 @@
             <li class="breadcrumb-item">
                 <a href="#">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Messages</li>
+            <li class="breadcrumb-item active">İncelemeler</li>
         </ol>
         <div class="list_general reviews">
             <ul>

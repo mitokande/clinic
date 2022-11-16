@@ -43,7 +43,7 @@
             <li class="breadcrumb-item">
                 <a href="#">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Messages</li>
+            <li class="breadcrumb-item active">Mesaj</li>
         </ol>
         <div class="chat">
             <div class="chat-history">

@@ -34,7 +34,7 @@ class AppointmentService{
             'enforce_login' => false,
             'waiting_room' => false,
         ]);
-        $zoom->meetings()->save($meeting);
+        //$zoom->meetings()->save($meeting);
         // $meetings = $zoom->meetings()->all();
         // $meeting->start_url
         $price = 100;
