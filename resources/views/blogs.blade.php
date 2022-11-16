@@ -34,15 +34,14 @@
 					@foreach ($blogs as $blog)
                         <article class="blog wow fadeIn">
                             <div class="row g-0">
-                                <div class="col-lg-7">
+                                <div class="col-lg-6">
                                     <figure>
-                                        <a <a href="{{$blog->slug}}">><img src="{{URL::asset('images/blogs/thumbnails/'.$blog->thumbnail_url)}}" alt=""><div class="preview"><span>Read more</span></div></a>
+                                        <a <a href="{{$blog->slug}}">><img src="{{URL::asset('images/blogs/thumbnails/'.$blog->thumbnail_url)}}" alt=""><div class="preview"><span>Daha fazlası</span></div></a>
                                     </figure>
                                 </div>
-                                <div class="col-lg-5">
+                                <div class="col-lg-6">
                                     <div class="post_info">
-                                        <small>{{$blog->created_at}}</small>
-                                        <h3><a href="{{$blog->slug}}">{{$blog->title}}</a></h3>
+                                        <h3 style="font-size: 1.44rem;"><a href="{{$blog->slug}}">{{$blog->title}}</a></h3>
                                         <p>Quodsi sanctus pro eu, ne audire scripserit quo. Vel an enim offendit salutandi, in eos quod omnes epicurei, ex veri qualisque scriptorem mei.</p>
                                         <ul>
                                             <li>
@@ -99,18 +98,18 @@
 						</ul>
 					</div>
 					
-					<div class="widget" style="position: sticky; top: 70px;">
+					<div class="widget" style="position: sticky; top: 88px;">
 						<div class="widget-title">
-							<h4>En Son Eklenenler</h4>
+							<h4>Çok Okunanlar</h4>
 						</div>
 						<ul class="comments-list">
 							@foreach (\App\Models\Blog::latest()->take(3)->get() as $blog)
 								<li>
 									<div class="alignleft">
-										<a href="#0"><img src="{{URL::asset('images/blogs/thumbnails/'.$blog->thumbnail_url)}}" alt=""></a>
+										<a href="{{$blog->slug}}"><img src="{{URL::asset('images/blogs/thumbnails/'.$blog->thumbnail_url)}}" alt=""></a>
 									</div>
 									<small>{{$blog->created_at}}<</small>
-									<h3><a href="#" title="">{{$blog->title}}</a></h3>
+									<h3><a href="{{$blog->slug}}" title="">{{$blog->title}}</a></h3>
 								</li>
 							@endforeach
 						</ul>

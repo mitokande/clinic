@@ -4,7 +4,7 @@
             <div class="col-lg-3 col-md-12">
                 <p>
                     <a href="/" title="">
-                        <img src="/logo1.png" alt="Doktora Danış" width="163" height="36" class="img-fluid">
+                        <img src="/logo1.png" alt="Doktora Danış" width="200px" height="36" class="img-fluid">
                     </a>
                 </p>
             </div>

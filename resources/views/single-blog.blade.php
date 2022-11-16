@@ -54,7 +54,7 @@
                     <!-- arama son -->
                     <!-- START OF AUTHOR INFO col-12 col-sm-6 col-md-4 col-lg-3 -->
                     <div class="">
-                        <div class="our-team">
+                        <div class="our-team" style="padding-bottom: 10px;">
                             <div class="picture">
                                 <a href="/doctor/{{$blog->user->username}}"><img class="img-fluid" src="{{URL::asset('images/doctors/profile/'.$blog->user->profile_picture)}}"></a>
                             </div>
@@ -73,26 +73,27 @@
 
                     <!-- END OF AUTHOR INFO -->
                     <div  class="doktor-bul"><a href="/doctors"><i class="fa fa-hospital"></i>  DOKTOR BUL</a></div>
-                    <!-- yarpp başlangıç -->
-                    <div>
-                        <div class="yarpp-related-widget" style="margin-top:25px" >
 
-                            <h3 class="related">Benzer Yazılar</h3>
-                            <ul class ="rel-ul" style="display: flex; flex-direction: column;" >
-
-
-
-
-
-                            </ul>
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4>Son Eklenenler</h4>
                         </div>
+                        <ul class="comments-list">
+                            @foreach (\App\Models\Blog::latest()->take(3)->get() as $blog)
+                                <li>
+                                    <div class="alignleft">
+                                        <a href="/{{$blog->slug}}"><img src="{{URL::asset('images/blogs/thumbnails/'.$blog->thumbnail_url)}}" alt=""></a>
+                                    </div>
+                                    <h3 style="margin-bottom: 10px !important;"><a href="/{{$blog->slug}}" title="">{{$blog->title}}</a></h3>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
-                    <!-- end of yarpp -->
 
                 </div>
             </div>
             <!-- /aside -->
-            <div class="col-lg-7">
+            <div class="col-lg-9">
                 <div class="bloglist singlepost">
                     <p><img alt="" style="height: max-content" class="img-fluid" src="{{URL::asset('/images/blogs/thumbnails/'.$blog->thumbnail_url)}}"></p>
                     <h1>{{$blog->title}}</h1>
@@ -112,136 +113,27 @@
                 </div>
                 <!-- /single-post -->
 
-                <div id="comments">
-                    <h5>Comments</h5>
-                    <ul>
-                        <li>
-                            <div class="avatar">
-                                <a href="#"><img src="http://via.placeholder.com/150x150.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="comment_right clearfix">
-                                <div class="comment_info">
-                                    By <a href="#">Anna Smith</a><span>|</span>25/10/2019<span>|</span><a href="#">Reply</a>
-                                </div>
-                                <p>
-                                    Nam cursus tellus quis magna porta adipiscing. Donec et eros leo, non pellentesque arcu. Curabitur vitae mi enim, at vestibulum magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sit amet sem a urna rutrumeger fringilla. Nam vel enim ipsum, et congue ante.
-                                </p>
-                            </div>
-                            <ul class="replied-to">
-                                <li>
-                                    <div class="avatar">
-                                        <a href="#"><img src="http://via.placeholder.com/150x150.jpg" alt="">
-                                        </a>
-                                    </div>
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://https-onlinedoctreat-com.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-                                    <div class="comment_right clearfix">
-                                        <div class="comment_info">
-                                            By <a href="#">Anna Smith</a><span>|</span>25/10/2019<span>|</span><a href="#">Reply</a>
-                                        </div>
-                                        <p>
-                                            Nam cursus tellus quis magna porta adipiscing. Donec et eros leo, non pellentesque arcu. Curabitur vitae mi enim, at vestibulum magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sit amet sem a urna rutrumeger fringilla. Nam vel enim ipsum, et congue ante.
-                                        </p>
-                                        <p>
-                                            Aenean iaculis sodales dui, non hendrerit lorem rhoncus ut. Pellentesque ullamcorper venenatis elit idaipiscingi Duis tellus neque, tincidunt eget pulvinar sit amet, rutrum nec urna. Suspendisse pretium laoreet elit vel ultricies. Maecenas ullamcorper ultricies rhoncus. Aliquam erat volutpat.
-                                        </p>
-                                    </div>
-                                    <ul class="replied-to">
-                                        <li>
-                                            <div class="avatar">
-                                                <a href="#"><img src="http://via.placeholder.com/150x150.jpg" alt="">
-                                                </a>
-                                            </div>
-
-                                            <div class="comment_right clearfix">
-                                                <div class="comment_info">
-                                                    By <a href="#">Anna Smith</a><span>|</span>25/10/2019<span>|</span><a href="#">Reply</a>
-                                                </div>
-                                                <p>
-                                                    Nam cursus tellus quis magna porta adipiscing. Donec et eros leo, non pellentesque arcu. Curabitur vitae mi enim, at vestibulum magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sit amet sem a urna rutrumeger fringilla. Nam vel enim ipsum, et congue ante.
-                                                </p>
-                                                <p>
-                                                    Aenean iaculis sodales dui, non hendrerit lorem rhoncus ut. Pellentesque ullamcorper venenatis elit idaipiscingi Duis tellus neque, tincidunt eget pulvinar sit amet, rutrum nec urna. Suspendisse pretium laoreet elit vel ultricies. Maecenas ullamcorper ultricies rhoncus. Aliquam erat volutpat.
-                                                </p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="avatar">
-                                <a href="#"><img src="http://via.placeholder.com/150x150.jpg" alt="">
-                                </a>
-                            </div>
-
-                            <div class="comment_right clearfix">
-                                <div class="comment_info">
-                                    By <a href="#">Anna Smith</a><span>|</span>25/10/2019<span>|</span><a href="#">Reply</a>
-                                </div>
-                                <p>
-                                    Cursus tellus quis magna porta adipiscin
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <hr>
-
-                <h5>Leave a Comment</h5>
-                <form>
-                    <div class="form-group">
-                        <input type="text" name="name" id="name2" class="form-control" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="email" id="email2" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="email" id="website3" class="form-control" placeholder="Website">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="comments" id="comments2" rows="6" placeholder="Message Below"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" id="submit2" class="btn_1"> Submit</button>
-                    </div>
-                </form>
             </div>
-            <!-- /col -->
-            <aside class="col-lg-2">
-
-                <div class="widget">
-                    <div class="widget-title">
-                        <h4>Son Eklenenler</h4>
-                    </div>
-                    <ul class="comments-list">
-                        @foreach (\App\Models\Blog::latest()->take(3)->get() as $blog)
-                            <li>
-                                <div class="alignleft">
-                                    <a href="/{{$blog->slug}}"><img src="{{URL::asset('images/blogs/thumbnails/'.$blog->thumbnail_url)}}" alt=""></a>
-                                </div>
-                                <h3 style="margin-bottom: 10px !important;"><a href="/{{$blog->slug}}" title="">{{$blog->title}}</a></h3>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-                <!-- /widget -->
-
-                <div class="widget">
-                    <div class="widget-title">
-                        <h4>Son Eklenen Kategoriler</h4>
-                    </div>
-                    <ul class="cats">
-                        @foreach (\App\Models\MedicineField::latest()->take(10)->get() as $categpry)
-                            <li><a href="#">{{$categpry->name}} <span>(X)</span></a></li>
-                        @endforeach
-                    </ul>
-                </div>
-                <!-- /widget -->
-
-            </aside>
-            <!-- /aside -->
 
         </div>
         <!-- /row -->

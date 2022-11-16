@@ -19,7 +19,7 @@
             <div class="container">
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Hakkımızda</a></li>
                     <li>Page active</li>
                 </ul>
             </div>
@@ -35,7 +35,7 @@
                 <div class="row justify-content-between">
                     <div class="col-lg-6">
                         <figure class="add_bottom_30">
-                            <img src="http://via.placeholder.com/800x450.jpg" class="img-fluid" alt="">
+                            <img src="/img/about_1.jpg" class="img-fluid" alt="">
                         </figure>
                     </div>
                     <div class="col-lg-5">

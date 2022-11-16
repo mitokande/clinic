@@ -33,8 +33,7 @@
         <div class="container">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Category</a></li>
-                <li>Page active</li>
+                <li><a href="#">{{$doctor->first_name.' '.$doctor->last_name}}</a></li>
             </ul>
         </div>
     </div>
@@ -47,8 +46,8 @@
                 <nav id="secondary_nav">
                     <div class="container">
                         <ul class="clearfix">
-                            <li><a href="#section_1" class="active">General info</a></li>
-                            <li><a href="#section_2">Reviews</a></li>
+                            <li><a href="#section_1" class="active">Genel Bilgi</a></li>
+                            <li><a href="#section_2">Değerlendirmeler</a></li>
                             <li><a href="#sidebar">Booking</a></li>
                         </ul>
                     </div>
@@ -67,15 +66,15 @@
                                     <h1>{{$doctor->first_name.' '.$doctor->last_name}}</h1>
 
                                     @livewire('doctor-stats',['doctor'=>$doctor])
-                                    <button onclick="Livewire.emit('openModal','send-message-modal',{{ json_encode(["doctorID" => $doctor->id]) }})" class="msger-send-btn">Send Message</button>
+                                    <button style="width: 100%; padding: 7.7px; margin: 0px; border-radius: 5px; background: #bc0536;" onclick="Livewire.emit('openModal','send-message-modal',{{ json_encode(["doctorID" => $doctor->id]) }})" class="msger-send-btn">Mesaj Gönder</button>
                                     <ul class="contacts">
                                         <li>
-                                            <h6>Address</h6>
+                                            <h6>Adres</h6>
                                             {{$doctor->address}} -
-                                            <a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank"> <strong>View on map</strong></a>
+                                            <a href="#" target="_blank"> <strong>View on map</strong></a>
                                         </li>
                                         <li>
-                                            <h6>Phone</h6> <a href="tel://{{$doctor->telephone}}">{{$doctor->telephone}}</a> </li>
+                                            <h6>Telefon</h6> <a href="tel://{{$doctor->telephone}}">{{$doctor->telephone}}</a> </li>
                                     </ul>
 
                                 </div>
@@ -84,11 +83,28 @@
 
                         <hr>
 
+                        <div class="indent_title_in">
+                            <i class="pe-7s-news-paper"></i>
+                            <h3>Eğitim</h3>
+{{--                            <p>Mussum ipsum cacilds, vidis litro abertis.</p>--}}
+                        </div>
+                        <div class="wrapper_indent">
+
+                            <h6>Curriculum</h6>
+                            <ul class="list_edu">
+                                @if(!empty($doctor->education))
+                                    @foreach(json_decode($doctor->education) as $education)
+                                        <li><strong></strong> - {{$education}}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                        </div>
+                        <hr>
+
                         <!-- /profile -->
                         <div class="indent_title_in">
                             <i class="pe-7s-user"></i>
-                            <h3>Professional statement</h3>
-                            <p>Hakkında</p>
+                            <h3>Hakkında</h3>
                         </div>
                         <div class="wrapper_indent">
                             <p>{{$doctor->about}}</p>
@@ -116,32 +132,13 @@
                         </div>
                         <!-- /wrapper indent -->
 
-                        <hr>
-
-                        <div class="indent_title_in">
-                            <i class="pe-7s-news-paper"></i>
-                            <h3>Education</h3>
-{{--                            <p>Mussum ipsum cacilds, vidis litro abertis.</p>--}}
-                        </div>
-                        <div class="wrapper_indent">
-
-                            <h6>Curriculum</h6>
-                            <ul class="list_edu">
-                                @if(!empty($doctor->education))
-                                    @foreach(json_decode($doctor->education) as $education)
-                                        <li><strong></strong> - {{$education}}</li>
-                                    @endforeach
-                                @endif
-                            </ul>
-                        </div>
                         <!--  End wrapper indent -->
 
                         <hr>
 
                         <div class="indent_title_in">
                             <i class="pe-7s-cash"></i>
-                            <h3>Prices &amp; Payments</h3>
-                            <p>Mussum ipsum cacilds, vidis litro abertis.</p>
+                            <h3>Fiyatlar ve Ödemeler</h3>
                         </div>
                         <div class="wrapper_indent">
                             <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
@@ -150,7 +147,7 @@
                                     <thead>
                                     <tr>
                                         <th>Service - Visit</th>
-                                        <th>Price</th>
+                                        <th>Fiyat</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -173,7 +170,27 @@
                 </div>
                 <!-- /box_general -->
 
-                @livewire('doctor-reviews',['doctor'=>$doctor])
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://https-onlinedoctreat-com.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+                {{-- @livewire('doctor-reviews',['doctor'=>$doctor]) --}}
                 <!-- /section_2 -->
             </div>
             <!-- /col -->
@@ -182,8 +199,8 @@
                     <form method="POST" action="{{$doctor->username}}/book">
                         @csrf
                         <div class="title">
-                            <h3>Book a Visit</h3>
-                            <small>Monday to Friday 09.00am-06.00pm</small>
+                            <h3>Randevu Al</h3>
+                            <small>Pazartesiden Cumaya 09.00am-18.00pm</small>
                         </div>
                         <div class="row">
                             <div class="col-6">
@@ -236,7 +253,7 @@
                         </form>
                         <?php }else{
                             ?></form>
-                            <button onclick="Livewire.emit('openModal','booking-login-modal',{{ json_encode(["doctorID" => $doctor->id]) }})"  class="btn_1 full-width">Book Now*</button>
+                            <button onclick="Livewire.emit('openModal','booking-login-modal',{{ json_encode(["doctorID" => $doctor->id]) }})"  class="btn_1 full-width">Randevu Al*</button>
                             <?php
                         } ?> 
                     

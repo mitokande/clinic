@@ -15,7 +15,9 @@
 <body>
     <x-home.header></x-home.header>
     <main>
-        <div id="map_contact"></div>
+        <div id="map_contact">
+		<div style="width: 100%; height: 100%;"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=19%20May%C4%B1s,%20Hrant%20Dink%20Sok.%20No:61,%2034360%20%C5%9Ei%C5%9Fli/%C4%B0stanbul+(Doktora%20Dan%C4%B1%C5%9F)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe></div>
+		</div>
 		<!-- /map -->
 
         <div class="container margin_60_35">
@@ -78,7 +80,7 @@
 									</div>
 								</div>
 
-								<input type="submit" value="Submit" class="btn_1 add_top_20" id="submit-contact">
+								<input type="submit" value="Gönder" class="btn_1 add_top_20" id="submit-contact">
 							</form>
 						</div>
 						<!-- /col -->

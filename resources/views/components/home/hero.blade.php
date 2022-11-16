@@ -24,9 +24,9 @@
 <div class="header-video">
     <div id="hero_video">
         <div class="content">
-            <h3>Doktor, Diş Hekimi ve Psikolog</h3>
+            <h3>Binlerce Uzman Arasından Tercihini Yap</h3>
             <p>
-                Binlerce uzman arasından tercihini yap
+                Doktor, Diş Hekimi ve Psikolog
             </p>
             @php
                 $fields = \App\Models\MedicineField::all();

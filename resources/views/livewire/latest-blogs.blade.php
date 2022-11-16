@@ -79,7 +79,7 @@
             </div>
             <div class="latest-bright">
                 <div>
-                    <p class="b-title">{{$blogs[0]->title}}</p>
+                    <a href="{{$blogs[0]->slug}}"><p class="b-title">{{$blogs[0]->title}}</p></a>
                     <p class="b-content">{{substr($blogs[0]->title,0,350)}}</p>
                 </div>
                 <a href="/{{$blogs[0]->slug}}"><button>DEVAMI</button></a>

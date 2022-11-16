@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><strong>Showing 10</strong> of 140 results</h4>
+                        <h4><strong>Tüm sonuçlar</strong> gösteriliyor</h4>
                     </div>
                     <div class="col-md-6">
                         <div class="search_bar_list">
@@ -79,8 +79,8 @@
                             </span>
                             <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Badge Level" class="badge_list_1"><img src="../img/badges/badge_1.svg" width="15" height="15" alt=""></a>
                             <ul>
-                                <li><a href="#0" onclick="onHtmlClick('Doctors', 0)" class="btn_listing">View on Map</a></li>
-                                <li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
+                                <li><a href="#" onclick="onHtmlClick('Doctors', 0)" class="btn_listing">View on Map</a></li>
+                                <li><a href="https://www.google.com/maps/place/%C3%9Cnsal+%C3%87ar%C5%9F%C4%B1s%C4%B1/@41.0582737,28.9875668,15z/data=!4m2!3m1!1s0x0:0xb22709fb6494a9b?sa=X&ved=2ahUKEwi50q615rD7AhXqR_EDHVlIDcIQ_BJ6BAguEAg" target="_blank">Directions</a></li>
                                 <?php if(Auth::guard('patients')->check()){
                                         ?>
                                             <li><a href="/doctor/{{$doctor->username}}/book-now">Book now</a></li>

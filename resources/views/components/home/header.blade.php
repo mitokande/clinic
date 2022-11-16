@@ -1,9 +1,9 @@
 <header class="header_sticky">
     <div class="container">
-        <div class="row">
+        <div class="row" style="align-items: center;">
             <div class="col-lg-3 col-6">
                 <div id="logo_home">
-                    <a href="/"><img src="/logo1.png" alt="Doktora Danış" width="133px"></a>
+                    <a href="/"><img src="/logo1.png" alt="Doktora Danış" width="200px"></a>
                 </div>
             </div>
             <nav class="header-nav col-lg-9 col-6">

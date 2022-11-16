@@ -883,10 +883,9 @@ ul#additional_links li:after {
 }
 .hero_home .content h3 {
   margin: 0 0 0 0;
-  font-size: 60px;
-  font-size: 3.75rem;
+  margin-bottom: 12px;
+  font-size: 3rem;
   font-weight: 700;
-  text-transform: uppercase;
   color: #fff;
 }
 @media (max-width: 767px) {
@@ -1007,7 +1006,7 @@ ul#additional_links li:after {
   display: none;
 }
 #custom-search-input ul li input[type="radio"]:checked + label, #custom-search-input ul li input[type="radio"]:checked + label:hover {
-  background-color: #74d1c6;
+  background-color: #1662c5;
   color: #fff;
 }
 #custom-search-input ul li input[type="radio"]:hover + label {
@@ -1059,10 +1058,10 @@ ul#additional_links li:after {
   -moz-border-radius: 0 3px 3px 0;
   -ms-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
-  background-color: #74d1c6;
+  background-color: #1662c5;
 }
 #custom-search-input input[type='submit']:hover {
-  background-color: #e74e84;
+  background-color: #bc0536;
 }
 @media (max-width: 575px) {
   #custom-search-input input[type='submit'] {
@@ -1222,6 +1221,7 @@ ul#additional_links li:after {
 }
 
 /*Carousel home page*/
+
 #reccomended, #staff {
   margin-top: 40px;
 }
@@ -1238,7 +1238,8 @@ ul#additional_links li:after {
   text-align: center;
   width: 100%;
   z-index: 9;
-  background: #3f4079;
+  background: black;
+  padding: 5px;
 }
 #reccomended .item .title p{
   margin-bottom: 12.5px;
@@ -1247,8 +1248,6 @@ ul#additional_links li:after {
   color: #e74e84;
 }
 #reccomended .item .title h4, #staff .item .title h4 {
-  background-color: #3f4079;
-  background-color: #3f4079;
   display: inline-block;
   -webkit-border-radius: 3px 3px 0 0;
   -moz-border-radius: 3px 3px 0 0;
@@ -1277,8 +1276,7 @@ ul#additional_links li:after {
   position: absolute;
   right: 15px;
   top: 15px;
-  background-color: #3f4079;
-  background-color: #3f4079;
+  background-color: #bc0536;
   color: #fff;
   box-sizing: border-box;
   padding: 3px 6px 4px 5px;
@@ -1572,10 +1570,10 @@ a.box_cat_home ul li strong {
 }
 #hero_video .content h3 {
   color: #fff;
-  font-size: 3.8rem;
+  font-size: 3rem;
   margin: 0;
-  text-transform: uppercase;
   font-weight: 800;
+  margin-bottom: 12px;
 }
 @media (max-width: 767px) {
   #hero_video .content h3 {
@@ -1591,7 +1589,8 @@ a.box_cat_home ul li strong {
 }
 #hero_video .content p {
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  margin-bottom: 35px;
 }
 #hero_video .content p strong {
   font-weight: 600;
@@ -3190,7 +3189,7 @@ label.css-label strong {
 }
 .profile ul.statistic li {
   display: inline-block;
-  background-color: #74d1c6;
+  background-color: #3F4079;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -3203,6 +3202,7 @@ label.css-label strong {
   font-size: 0.75rem;
   min-width: 95px;
   text-align: center;
+  padding: 11px !important;
 }
 .profile ul.contacts {
   margin: 25px 0 0 0;
@@ -3721,7 +3721,7 @@ a.social_bt.linkedin:before {
 
 #map_contact {
   width: 100%;
-  height: 500px;
+  height: 444px;
 }
 @media (max-width: 767px) {
   #map_contact {
@@ -5297,6 +5297,9 @@ ul#cat_nav li:last-child a:hover, ul#cat_nav li:last-child a#active, ul#cat_nav 
   touch-action: manipulation;
   vertical-align: middle;
   width: 100px;
+  font-weight: bold;
+  font-size: .975rem;
+  padding: 6.6px 10px;
 }
 
 #top_access{
@@ -5308,5 +5311,11 @@ ul#cat_nav li:last-child a:hover, ul#cat_nav li:last-child a#active, ul#cat_nav 
   outline: 0;
 }
 
+.header-nav{
+  align-items: center;
+}
 
-
+article.blog .post_info, article.blog figure{
+  min-height: 300px !important;
+  height: 300px !important;
+}
