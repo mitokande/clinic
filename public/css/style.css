@@ -408,6 +408,7 @@ strong {
 /*General links color*/
 a {
   color: #e74e84;
+  color: #1662c5;
   text-decoration: none;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -1239,6 +1240,7 @@ ul#additional_links li:after {
   width: 100%;
   z-index: 9;
   background: black;
+  background: #3f4079;
   padding: 5px;
 }
 #reccomended .item .title p{
@@ -1277,6 +1279,7 @@ ul#additional_links li:after {
   right: 15px;
   top: 15px;
   background-color: #bc0536;
+  background: #3f4079;
   color: #fff;
   box-sizing: border-box;
   padding: 3px 6px 4px 5px;

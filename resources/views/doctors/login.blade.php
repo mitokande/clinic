@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Find easily a doctor and book online an appointment">
     <meta name="author" content="Ansonika">
-    <title>FINDOCTOR - Find easily a doctor and book online an appointment</title>
+    <title>Doktor olarak Giriş Yap</title>
     @livewireStyles
     <!-- Favicons-->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>

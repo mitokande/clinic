@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Find easily a doctor and book online an appointment">
     <meta name="author" content="Ansonika">
-    <title>FINDOCTOR - Find easily a doctor and book online an appointment</title>
+    <title>Hasta olarak Giriş Yap</title>
     @livewireStyles
     <!-- Favicons-->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -66,7 +66,7 @@
                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
 							</div>
 							<div class="form-group">
-                                <x-input-label for="password" :value="__('Password')" />
+                                <x-input-label for="password" :value="__('Şifre')" />
 
                                 <x-text-input id="password" class="form-control"
                                             type="password"
@@ -75,28 +75,28 @@
 
                                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
 							</div>
-							<a href="#0"><small>Forgot password?</small></a>
+							<a href="#0"><small>Şifremi unuttum?</small></a>
                             <div class="flex items-center justify-end mt-4">
                     {{--                @if (Route::has('password.request'))--}}
                     {{--                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">--}}
-                    {{--                        {{ __('Forgot your password?') }}--}}
+                    {{--                        {{ __('Şifremi unuttum?') }}--}}
                     {{--                    </a>--}}
                     {{--                @endif--}}
                                     
                                     
                                 </div>
 							<div class="form-group text-center add_top_20">
-								<input class="btn_1 medium" type="submit" value="Login">
+								<input class="btn_1 medium" type="submit" value="Giriş Yap">
 							</div>
                             
-							<div class="divider"><span>Or</span></div>
+							<div class="divider"><span>Ya da</span></div>
 
 							<a href="#0" class="social_bt facebook">Login with Facebook</a>
 							<a href="#0" class="social_bt google">Login with Google</a>
 							<a href="#0" class="social_bt linkedin">Login with Linkedin</a>
 						</form>
 					</div>
-					<p class="text-center link_bright">Do not have an account yet? <a href="{{ route('patient.register') }}"><strong>Register now!</strong></a></p>
+                    <p class="text-center link_bright">Hesabınız yok mu? <a href="{{ route('patient.register') }}"><strong>Şimdi Kayıt olun!</strong></a></p>
 				</div>
 				<!-- /login -->
 			</div>

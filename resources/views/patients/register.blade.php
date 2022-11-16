@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Find easily a doctor and book online an appointment">
     <meta name="author" content="Ansonika">
-    <title>FINDOCTOR - Find easily a doctor and book online an appointment</title>
+    <title>Hasta olarak Kayıt Ol</title>
     @livewireStyles
     <!-- Favicons-->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -54,22 +54,22 @@
         <div class="container margin_120_95">
             <div class="row">
                 <div class="col-lg-6">
-                    <h1>It's time to find you!</h1>
-                    <p class="lead">Te pri adhuc simul. No eros errem mea. Diam mandamus has ad. Invenire senserit ad has, has ei quis iudico, ad mei nonumes periculis.</p>
+                    <h1>Seni bulma zamanı!</h1>
+                    <p class="lead">Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
                     <div class="box_feat_2">
                         <i class="pe-7s-map-2"></i>
-                        <h3>Let patients to Find you!</h3>
-                        <p>Ut nam graece accumsan cotidieque. Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet.</p>
+                        <h3>Bırakın hastalar sizi bulsun!</h3>
+                        <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
                     </div>
                     <div class="box_feat_2">
                         <i class="pe-7s-date"></i>
-                        <h3>Easly manage Bookings</h3>
-                        <p>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</p>
+                        <h3>Rezervasyonları kolayca yönetin</h3>
+                        <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
                     </div>
                     <div class="box_feat_2">
                         <i class="pe-7s-phone"></i>
-                        <h3>Instantly via Mobile</h3>
-                        <p>Eos eu epicuri eleifend suavitate, te primis placerat suavitate his. Nam ut dico intellegat reprehendunt, everti audiam diceret in pri, id has clita consequat suscipiantur.</p>
+                        <h3>Mobil üzerinden anında</h3>
+                        <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
                     </div>
                 </div>
                 <!-- /col -->
@@ -79,11 +79,11 @@
                             <div class="box_form">
                                 <div class="form-group row">
                                     <div class="col-md-6">
-                                        <label>First Name</label>
+                                        <label>Adınız</label>
                                         <input type="text" class="form-control" name="first_name" placeholder="Your first name">
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Last Name</label>
+                                        <label>Soyadınız</label>
                                         <input type="text" class="form-control" name="last_name" placeholder="Your last name">
                                     </div>
                                 </div>
@@ -92,19 +92,19 @@
                                     <input type="email" class="form-control" name="email" placeholder="Your email address">
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label>Şifre</label>
                                     <input type="password" class="form-control" id="password1" name="password" placeholder="Your password">
                                 </div>
                                 <div class="form-group">
-                                    <label>Confirm password</label>
+                                    <label>Şifrenizi Onaylayın</label>
                                     <input type="password" class="form-control" id="password2" name="password_confirmation" placeholder="Confirm password">
                                 </div>
                                 <div class="form-group">
-                                    <label>Telephone</label>
+                                    <label>Telefon</label>
                                     <input type="number" class="form-control"  name="telephone" placeholder="Telephone Number">
                                 </div>
                                 <div class="form-group">
-                                    <label>Profile Picture</label>
+                                    <label>Profil Resmi</label>
                                     <input type="file" required class="form-control"  name="profile_picture" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
                                     <img style="width: 100%;" id="pic" />
 
@@ -113,15 +113,14 @@
                                 <div class="checkbox-holder text-left">
                                     <div class="checkbox_2">
                                         <input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
-                                        <label for="check_2"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
+                                        <label for="check_2"><span>Şartlar ve Koşulları Kabul Ediyorum</strong></span></label>
                                     </div>
                                 </div>
                                 <div class="form-group text-center add_top_30">
-                                    <input class="btn_1" type="submit" value="Submit">
+                                    <input class="btn_1" type="submit" value="Kayıt Ol">
                                 </div>
                             </div>
-                            <p class="text-center"><small>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</small></p>
-                        
+                            <a href="/patient/login" style="display: block; color: white;" class="text-center">Hesabınız var mı? Hasta girişi yapın!</a>
                     <!-- /box_form -->
                 </div>
                 <!-- /col -->

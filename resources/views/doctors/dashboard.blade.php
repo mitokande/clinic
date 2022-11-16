@@ -12,7 +12,7 @@
     @livewireStyles
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <title>Document</title>
+    <title>Panel</title>
 </head>
 <body>
 
@@ -32,7 +32,23 @@
         </ol>
         <!-- Icon Cards-->
         <div class="row" style="margin-top: 5vh;">
-            <div class="col-xl-4 col-sm-6 mb-3">
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card dashboard text-white bg-success o-hidden h-100" style="padding: 20px 0;">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-calendar-check-o"></i>
+                        </div>
+                        <div class="mr-5"><h5>10 New Bookings!</h5></div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="bookings.html">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
                 <div class="card dashboard text-white bg-primary o-hidden h-100" style="padding: 20px 0;">
                     <div class="card-body">
                         <div class="card-body-icon">
@@ -48,7 +64,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-xl-4 col-sm-6 mb-3">
+            <div class="col-xl-3 col-sm-6 mb-3">
                 <div class="card dashboard text-white bg-warning o-hidden h-100" style="padding: 20px 0;">
                     <div class="card-body">
                         <div class="card-body-icon">
@@ -64,7 +80,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-xl-4 col-sm-6 mb-3">
+            <div class="col-xl-3 col-sm-6 mb-3">
                 <div class="card dashboard text-white bg-danger o-hidden h-100" style="padding: 20px 0;">
                     <div class="card-body">
                         <div class="card-body-icon">
