@@ -5,9 +5,9 @@
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">Dashboard</a>
+                    <a href="/doctor/dashboard">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">Add listing</li>
+                <li class="breadcrumb-item active">Profili Düzenle</li>
             </ol>
             <x-admin.basic-info :doctor="$doctor"></x-admin-basic-info >
             <!-- -->
