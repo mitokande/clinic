@@ -12,7 +12,7 @@
     @livewireStyles
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <title>Panel</title>
+    <title>Dashboard - Doktora Danış</title>
 </head>
 <body>
 

@@ -5,9 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Ansonika">
-    <title>Randevularım - {{$doctor->first_name}} {{$doctor->last_name}}</title>
+
+    <title>Randevularım - Doktora Danış</title>
 
     <!-- Bootstrap core CSS-->
     <script src="https://cdn.tailwindcss.com"></script>
