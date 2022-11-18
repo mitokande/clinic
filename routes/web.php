@@ -3,6 +3,8 @@
 use App\Http\Controllers\GeneralController;
 use App\Models\Doctor;
 use App\Models\UserReviews;
+// use App\Post;
+use Corcel\Model\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,10 +26,12 @@ Route::get('/', function () {
 });
 Route::get('/doctors',[\App\Http\Controllers\Doctor\DoctorController::class,'list']);
 Route::get('/denememe',function (){
-    $doctor = \App\Models\Doctor::find(1);
-    $doctor->medicine_field_id = \App\Models\MedicineField::find(1)->id;
-    $doctor->save();
-    return \App\Models\Doctor::find(1)->field()->name;
+    $posts = App\Post::type('doktor')->status('publish')->get();
+    
+
+    // DB::connection('wordpress')->select('select * from wpji_posts');
+    
+    return view('denememe',['doktorlar'=>$posts]);
 });
 
 Route::name('patient.')->prefix('patient')->group( function (){
@@ -77,7 +81,10 @@ Route::name('doctor.')->prefix('doctor')->group( function (){
         Route::post('logout', [\App\Http\Controllers\Doctor\AuthController::class, 'destroy'])->name('logout');
         Route::middleware('is_admin')->group(function(){
             Route::get('/dashboard/doctors',[\App\Http\Controllers\Admin\DashboardController::class,'list']);
+
             Route::get('/dashboard/doctors/add',[\App\Http\Controllers\Admin\DashboardController::class,'add_doctor']);
+            Route::post('/dashboard/doctors/add',[\App\Http\Controllers\Admin\DashboardController::class,'create_doctor']);
+
             Route::get('/dashboard/edit-profile/{doctorID}',[\App\Http\Controllers\Admin\DashboardController::class,'profile_edit']);
             Route::post('/dashboard/edit-profile/{doctorID}',[\App\Http\Controllers\Admin\DashboardController::class,'profile_update']);
         });

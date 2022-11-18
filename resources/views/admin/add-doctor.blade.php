@@ -189,7 +189,11 @@
     </div>
 </nav>
 <!-- /Navigation-->
-
+@php
+    $fields = \App\Models\MedicineField::all();
+    $titles = \App\Models\DoctorTitle::all();
+    
+@endphp
 
 <div class="content-wrapper">
 
@@ -203,11 +207,233 @@
             <li class="breadcrumb-item active">Add listing</li>
         </ol>
 
+        <form method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="box_general padding_bottom">
+       
+           
+            <div class="header_box version_2">
+                <h2><i class="fa fa-file"></i>Basic info</h2>
+            </div>
+            <div class="row" style="margin-bottom: 14px;">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input  type="text" class="form-control" name="first_name"  value="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Last name</label>
+                        <input type="text" name="last_name" class="form-control" value="">
+                    </div>
+                </div>
+            </div>
+            <!-- /row-->
+            <div class="row" style="margin-bottom: 14px;">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Telephone</label>
+                        <input type="text" class="form-control" name="telephone" value="" placeholder="Your telephone number">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email" value="">
+                    </div>
+                </div>
+            </div>
+            <!-- /row-->
+            <div class="row" style="margin-bottom: 14px;">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Profile picture</label>
+                        <br>
+                        <div style="display: flex; flex-direction: column; gap: 5px;">
+                            <input name="profile_picture" type="file" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
+                            <img src="" id="pic" style="width: 200px"/> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Uzmanlık Alanınız</label>
+                        <select class="form-select" name="medicine_field_id">
+                            @foreach($fields as $field)
+                                <option value="{{$field->id}}">{{$field->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Alanınız</label>
+                        <select class="form-select" name="doctor_title_id">
+                            @foreach($titles as $title)
+                                <option value="{{$title->id}}">{{$title->title_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- /row-->
+           
+        
+    </div>
+    <!-- /box_general-->
+    
+
+
+
+
+    <div class="box_general padding_bottom">
+
+                    <div class="header_box version_2">
+                        <h2><i class="fa fa-map-marker"></i>Address</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" class="form-control" name="city" placeholder="City" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" class="form-control" name="address" value="" placeholder="Your address">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>State</label>
+                                <input type="text" class="form-control" name="state" value="" placeholder="Your state">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Zip code</label>
+                                <input type="text" class="form-control" name="zipcode" value="" placeholder="Your zip code">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /row-->
+                   
+
+    </div>
+
+    <div class="box_general padding_bottom">
+
+  
+        <div class="header_box version_2">
+            <h2><i class="fa fa-file-text"></i>Education</h2>
+        </div>
+        <div class="row" style="margin-bottom: 14px;">
+            <div class="col-md-12">
+                <div  class="form-group">
+                    <label>Add School/University</label>
+                    <select name="education[]" class="form-control education_select" multiple="multiple">
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- /row-->
+
+        <!-- /row-->
+
+        <script src="{{URL::asset('vendor/jquery/jquery.min.js')}}"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('.education_select').on('change', function (e) {
+                    var data = $('.education_select').select2("val");
+                
+                });
+            });
+
+        </script>
+    </div>
+<!-- /box_general-->
+
+
+
+
+    <div class="box_general padding_bottom">
+    
+        <div class="header_box version_2">
+            <h2><i class="fa fa-file-text"></i>About Me</h2>
+        </div>
+        <div class="row" style="margin-bottom: 14px;">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Who am I</label>
+                    <textarea name="about" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- /row-->
+        <div class="row" style="margin-bottom: 14px;">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Specialization <a href="#0" data-toggle="tooltip" data-placement="top" title="Separated by commas"><i class="fa fa-fw fa-question-circle"></i></a></label>
+                    <select name="specialization[]" class="form-control specialization_select" multiple="multiple">
+                        
+                    </select>
+                    {{--                        <input type="text" class="form-control" placeholder="Ex: Piscologist, Pediatrician...">--}}
+                </div>
+            </div>
+        </div>
+        <!-- /row-->
+            
+        
+        <script src="{{URL::asset('vendor/jquery/jquery.min.js')}}"></script>
+        <script>
+            $(document).ready(function() {
+                $('.specialization_select').on('change', function (e) {
+                    var data = $('.specialization_select').select2("val");
+                
+                });
+            });
+
+        </script>
+
+    </div>
+<!-- /box_general-->
+
+
+<div class="box_general padding_bottom">
+
+    <div class="header_box version_2">
+        <h2><i class="fa fa-folder"></i>Services - Pricing</h2>
+    </div>
+    <div class="row" style="margin-bottom: 14px;">
+        <div class="col-md-12">
+            <h6>Treatments</h6>
+            <table id="pricing-list-container" style="width:100%;">
+
+                
+            </table>
+            <a href="#0" onclick="addService()" class="btn_1 gray add-pricing-list-item"><i class="fa fa-fw fa-plus-circle"></i>Add Item</a>
+        </div>
+        
+    </div>
+    
+    <!-- /row-->
+
+</div>
+<button style="width: 100%; border-radius: 8px;" type="submit" class="btn_1 medium">Save</button>
+<!-- /box_general-->
+
+
+
+</form>
 
     </div>
     <!-- /.container-fluid-->
 </div>
-
 
 
 

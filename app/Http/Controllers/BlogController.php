@@ -51,7 +51,7 @@ class BlogController extends Controller
 //    }
     public function index($blogname){
         $blog = Blog::query()->where('slug','=',$blogname)->firstOrFail();
-
+        
         return view('single-blog',[
             'blog'=>$blog,
             'doctor'=> Auth::guard('doctors')->user(),

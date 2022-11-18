@@ -10,6 +10,7 @@
         "cyrildewit/eloquent-viewable": "^6.1",
         "guzzlehttp/guzzle": "^7.2",
         "jantinnerezo/livewire-alert": "^2.2",
+        "jgrossi/corcel": "^6.0",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/socialite": "^5.5",

@@ -44,14 +44,14 @@ class Doctor extends Authenticatable implements Viewable
     ];
 
     public function getFullName(){
-        return $this->first_name.' '.$this->last_name;
+        return $this->title()->title_name. ' ' .$this->first_name. ' ' .$this->last_name;
     }
 
     public static function getUsername($first_and_last_name){
 
         $username = str_replace(" ","-",$first_and_last_name);
         $username = mb_strtolower($username,'UTF-8');
-        $username = strtr($username, ['ü'=>'u','ö'=>'o','ı'=>'i','ş'=>'s','ğ'=>'g']);
+        $username = strtr($username, ['ü'=>'u','ö'=>'o','ı'=>'i','ş'=>'s','ğ'=>'g','ç'=>'c','.'=>'']);
         return $username;
     }
 

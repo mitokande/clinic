@@ -62,7 +62,19 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-
+        'wordpress' => [ // for WordPress database (used by Corcel)
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'port' => env('DB_PORT', '3306'),
+            'database'  => 'doktora1_wp603',
+            'username'  => 'wp',
+            'password'  => 'kandemir123',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => 'wpji_',
+            'strict'    => false,
+            'engine'    => null,
+        ],
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

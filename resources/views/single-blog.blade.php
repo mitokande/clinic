@@ -79,12 +79,12 @@
                             <h4>Son Eklenenler</h4>
                         </div>
                         <ul class="comments-list">
-                            @foreach (\App\Models\Blog::latest()->take(3)->get() as $blog)
+                            @foreach (\App\Models\Blog::latest()->take(3)->get() as $_blog)
                                 <li>
                                     <div class="alignleft">
-                                        <a href="/{{$blog->slug}}"><img src="{{URL::asset('images/blogs/thumbnails/'.$blog->thumbnail_url)}}" alt=""></a>
+                                        <a href="/{{$_blog->slug}}"><img src="{{URL::asset('images/blogs/thumbnails/'.$_blog->thumbnail_url)}}" alt=""></a>
                                     </div>
-                                    <h3 style="margin-bottom: 10px !important;"><a href="/{{$blog->slug}}" title="">{{$blog->title}}</a></h3>
+                                    <h3 style="margin-bottom: 10px !important;"><a href="/{{$_blog->slug}}" title="">{{$_blog->title}}</a></h3>
                                 </li>
                             @endforeach
                         </ul>

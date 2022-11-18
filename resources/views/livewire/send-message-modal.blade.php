@@ -1,7 +1,7 @@
 <div class="centering-block">
     <section class="centered modal-message">
         <section class="from">
-            <p>Send A Message To: <a href="/doctor/{{$doctor->getUserName($doctor->getFullName())}}" target="_blank">{{$doctor->getFullName()}}</a></p>
+            <p>Send A Message To: <a href="/doctor/{{$doctor->username}}" target="_blank">{{$doctor->getFullName()}}</a></p>
         </section><!-- /.from -->
         <section class="message">
             <label>Your Name:{{\Illuminate\Support\Facades\Auth::guard('patients')->user()->getFullName()}}</label>
