@@ -92,12 +92,13 @@ Route::name('doctor.')->prefix('doctor')->group( function (){
     Route::get('login',[\App\Http\Controllers\Doctor\AuthController::class,'login'])->name('login');
     Route::get('register',[\App\Http\Controllers\Doctor\AuthController::class,'register']);
     Route::post('register',[\App\Http\Controllers\Doctor\AuthController::class,'store'])->name('register');
-    Route::get('{username}',[\App\Http\Controllers\Doctor\DoctorController::class,'index']);
     Route::get('{username}/book-now',[\App\Http\Controllers\AppointmentController::class,'BookNowWithDetails'])->name('book-now');
     Route::post('{username}/book-now',[\App\Http\Controllers\AppointmentController::class,'BookNowWithDetailsPost']);
     Route::post('{username}/book',[\App\Http\Controllers\AppointmentController::class,'Create'])->name('book');
 
 });
+Route::get('/doktor/{username}',[\App\Http\Controllers\Doctor\DoctorController::class,'index']);
+
 Route::get('/login/doctor',[\App\Http\Controllers\Doctor\AuthController::class,'login'])->name('doctor');
 Route::post('/login/patient',[\App\Http\Controllers\Patient\AuthController::class,'authenticate'])->name('patient-login');
 Route::post('/login/doctor',[\App\Http\Controllers\Doctor\AuthController::class,'authenticate'])->name('doctor-login');
