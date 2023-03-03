@@ -13,4 +13,4 @@
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
 *.js linguist-vendored
-public/vendor linguist-vendored
+*.js linguist-vendored
